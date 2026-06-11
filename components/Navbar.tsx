@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 
 const links = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
 ];
@@ -63,6 +64,12 @@ export default function Navbar({
           >
             Help Us Learn
           </button>
+          <button
+            onClick={onDiscoveryOpen}
+            className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium"
+          >
+            Contact
+          </button>
         </nav>
 
         {/* CTA */}
@@ -103,6 +110,12 @@ export default function Navbar({
             className="block text-sm font-medium text-slate-600 hover:text-slate-900 w-full text-left"
           >
             Help Us Learn
+          </button>
+          <button
+            onClick={() => { setMobile(false); onDiscoveryOpen(); }}
+            className="block text-sm font-medium text-slate-600 hover:text-slate-900 w-full text-left"
+          >
+            Contact
           </button>
           <button
             onClick={() => { setMobile(false); onDiscoveryOpen(); }}
