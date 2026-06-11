@@ -1,6 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-navy-950: #050D1A;
+  --color-navy-900: #0B1628;
+  --color-navy-800: #112040;
+  --color-navy-700: #1A3160;
+  --color-navy-600: #1E3A8A;
+  --color-violet-600: #7C3AED;
+  --color-violet-500: #8B5CF6;
+  --color-violet-400: #A78BFA;
+  --color-violet-200: #DDD6FE;
+  --color-violet-100: #EDE9FE;
+
+  --font-family-sans: var(--font-inter), system-ui, sans-serif;
+  --font-family-display: var(--font-plus-jakarta), var(--font-inter), sans-serif;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee2: marquee2 30s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4,0,0.6,1) infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-gradient: gradient 8s ease infinite;
+}
 
 @layer base {
   html {
