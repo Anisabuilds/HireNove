@@ -38,20 +38,20 @@ export default function Navbar({
           : "bg-transparent py-5"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-4">
         {/* Logo */}
-        <Link href="/" className="relative h-8 w-36 block shrink-0">
+        <Link href="/" className="relative h-8 w-32 block shrink-0">
           <Image src="/logo-color.png" alt="HireNove" fill className="object-contain object-left" />
         </Link>
 
-        {/* Desktop links */}
-        <nav className="hidden md:flex items-center gap-5">
+        {/* Desktop links — centered */}
+        <nav className="hidden md:flex items-center gap-4 flex-1 justify-center">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               className={cn(
-                "text-sm font-medium transition-colors duration-200",
+                "text-sm font-medium transition-colors duration-200 whitespace-nowrap",
                 pathname === l.href ? "text-slate-900" : "text-slate-500 hover:text-slate-900"
               )}
             >
@@ -60,25 +60,25 @@ export default function Navbar({
           ))}
           <button
             onClick={onLearnOpen}
-            className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium"
+            className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium whitespace-nowrap"
           >
             Help Us Learn
           </button>
           <button
             onClick={onDiscoveryOpen}
-            className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium"
+            className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium whitespace-nowrap"
           >
             Contact
           </button>
         </nav>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center shrink-0">
           <button
             onClick={onDiscoveryOpen}
-            className="text-sm font-semibold px-5 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/25"
+            className="text-sm font-semibold px-4 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/25 whitespace-nowrap"
           >
-            Book a Discovery Call
+            Book a Call
           </button>
         </div>
 
