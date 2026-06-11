@@ -6,6 +6,7 @@ import Marquee from "@/components/Marquee";
 import HowWeWork from "@/components/HowWeWork";
 import BentoFriction from "@/components/BentoFriction";
 import WhyHireNove from "@/components/WhyHireNove";
+import IntegrationsSection from "@/components/IntegrationsSection";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import HelpUsLearnModal from "@/components/HelpUsLearnModal";
@@ -37,6 +38,7 @@ export default function Home() {
         <HowWeWork />
         <BentoFriction />
         <WhyHireNove />
+        <IntegrationsSection />
         <About />
       </main>
       <Footer onDiscoveryOpen={() => setDiscoveryOpen(true)} />

@@ -6,11 +6,12 @@
   --color-navy-800: #112040;
   --color-navy-700: #1A3160;
   --color-navy-600: #1E3A8A;
-  --color-violet-600: #7C3AED;
-  --color-violet-500: #8B5CF6;
-  --color-violet-400: #A78BFA;
-  --color-violet-200: #DDD6FE;
+  --color-violet-600: #5B21B6;
+  --color-violet-500: #6D28D9;
+  --color-violet-400: #7C3AED;
+  --color-violet-200: #C4B5FD;
   --color-violet-100: #EDE9FE;
+  --color-slate-50: #F2EDE6;
 
   --font-family-sans: var(--font-inter), system-ui, sans-serif;
   --font-family-display: var(--font-plus-jakarta), var(--font-inter), sans-serif;
@@ -26,11 +27,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background: #F6F7F9;
+    background: #F9F5EF;
   }
 
   body {
-    background: #F6F7F9;
+    background: #F9F5EF;
     color: #0F172A;
     font-family: var(--font-inter), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -50,7 +51,7 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 50%, #7C3AED 100%);
+    background: linear-gradient(135deg, #5B21B6 0%, #3730A3 50%, #5B21B6 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -59,7 +60,7 @@
   }
 
   .gradient-text-static {
-    background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
+    background: linear-gradient(135deg, #5B21B6 0%, #3730A3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -114,7 +115,7 @@
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #F6F7F9; }
+::-webkit-scrollbar-track { background: #F9F5EF; }
 ::-webkit-scrollbar-thumb { background: #C4B5FD; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
 
