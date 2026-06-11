@@ -41,12 +41,12 @@ export default function WhyHireNove() {
               <p>The challenge is that daily workflows still generate manual work, duplicated effort, and admin friction — because tools don't connect, processes weren't designed for actual volume, or the operating rhythm has evolved beyond what was originally configured.</p>
               <p className="text-slate-700 font-medium">We focus on improving how work moves through your existing systems — before recommending any new technology.</p>
             </div>
-            <a
-              href="#discovery"
+            <button
+              onClick={() => document.dispatchEvent(new CustomEvent("openDiscovery"))}
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-xl text-sm transition-all duration-200 shadow-md hover:shadow-violet-500/30"
             >
               Start a Conversation
-            </a>
+            </button>
           </motion.div>
 
           {/* Right — outcomes */}

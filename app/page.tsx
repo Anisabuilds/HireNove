@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
@@ -15,6 +15,12 @@ import MouseTracker from "@/components/MouseTracker";
 export default function Home() {
   const [learnOpen, setLearnOpen] = useState(false);
   const [discoveryOpen, setDiscoveryOpen] = useState(false);
+
+  useEffect(() => {
+    const fn = () => setDiscoveryOpen(true);
+    document.addEventListener("openDiscovery", fn);
+    return () => document.removeEventListener("openDiscovery", fn);
+  }, []);
 
   return (
     <>

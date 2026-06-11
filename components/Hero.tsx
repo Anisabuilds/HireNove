@@ -66,7 +66,7 @@ export default function Hero({ onLearnOpen, onDiscoveryOpen }: { onLearnOpen: ()
           className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-6 max-w-4xl text-balance text-slate-900"
         >
           Recruiters should spend time{" "}
-          <span className="gradient-text">recruiting.</span>
+          <span className="gradient-text font-serif-accent">recruiting.</span>
         </motion.h1>
 
         {/* Sub */}
