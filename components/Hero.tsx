@@ -12,7 +12,9 @@ const fadeUp: Variants = {
   }),
 };
 
-export default function Hero({ onLearnOpen, onDiscoveryOpen }: { onLearnOpen: () => void; onDiscoveryOpen: () => void }) {
+export default function Hero() {
+  const onLearnOpen = () => document.dispatchEvent(new CustomEvent("openLearn"));
+  const onDiscoveryOpen = () => document.dispatchEvent(new CustomEvent("openDiscovery"));
   return (
     <section id="top" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Mesh gradient background */}

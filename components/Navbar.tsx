@@ -1,13 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "How We Work", href: "#how-we-work" },
-  { label: "Friction Areas", href: "#friction" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
 ];
 
 export default function Navbar({
@@ -19,6 +20,7 @@ export default function Navbar({
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobile, setMobile] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
@@ -37,20 +39,23 @@ export default function Navbar({
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#top" className="relative h-8 w-36 block shrink-0">
+        <Link href="/" className="relative h-8 w-36 block shrink-0">
           <Image src="/logo-color.png" alt="HireNove" fill className="object-contain object-left" />
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <nav className="hidden md:flex items-center gap-7">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
-              className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium"
+              className={cn(
+                "text-sm font-medium transition-colors duration-200",
+                pathname === l.href ? "text-slate-900" : "text-slate-500 hover:text-slate-900"
+              )}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <button
             onClick={onLearnOpen}
@@ -84,14 +89,14 @@ export default function Navbar({
       {mobile && (
         <div className="md:hidden bg-white border-t border-black/8 px-6 py-5 space-y-4 shadow-lg">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               onClick={() => setMobile(false)}
               className="block text-sm font-medium text-slate-600 hover:text-slate-900"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <button
             onClick={() => { setMobile(false); onLearnOpen(); }}

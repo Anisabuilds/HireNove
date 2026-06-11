@@ -85,12 +85,12 @@ export default function About() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
-              <a
-                href="#discovery"
+              <button
+                onClick={() => document.dispatchEvent(new CustomEvent("openDiscovery"))}
                 className="inline-flex items-center justify-center px-6 py-3.5 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-xl text-sm transition-all duration-200 shadow-md"
               >
                 Work with HireNove
-              </a>
+              </button>
               <a
                 href="https://linkedin.com"
                 target="_blank"

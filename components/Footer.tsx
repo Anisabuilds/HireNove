@@ -1,11 +1,11 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 const navLinks = [
-  { label: "How We Work", href: "#how-we-work" },
-  { label: "Friction Areas", href: "#friction" },
-  { label: "Why HireNove", href: "#why" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Research", href: "/research" },
 ];
 
 export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => void }) {
@@ -41,13 +41,13 @@ export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => voi
             <p className="text-xs font-semibold uppercase tracking-widest text-slate-300 mb-5">Navigation</p>
             <nav className="space-y-3">
               {navLinks.map((l) => (
-                <a
+                <Link
                   key={l.href}
                   href={l.href}
                   className="block text-sm text-slate-400 hover:text-slate-900 transition-colors duration-200"
                 >
                   {l.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
