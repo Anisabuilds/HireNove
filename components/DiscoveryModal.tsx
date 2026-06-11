@@ -146,6 +146,12 @@ export default function DiscoveryModal({
                     )}
                   </button>
                   <p className="text-xs text-slate-400 text-center">We respond within one business day. No commitment required.</p>
+                  <p className="text-xs text-slate-400 text-center">
+                    Or contact directly:{" "}
+                    <a href="mailto:anisa@hirenove.com" className="text-violet-600 hover:text-violet-500 transition-colors font-medium">
+                      anisa@hirenove.com
+                    </a>
+                  </p>
                 </form>
               )}
             </div>
