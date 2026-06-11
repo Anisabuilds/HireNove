@@ -22,18 +22,20 @@ export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => voi
               Workflow optimisation for recruitment firms. We help recruiters spend less time on admin
               and more time on what matters.
             </p>
-            <a
-              href="mailto:anisa@hirenove.com"
-              className="text-violet-600 text-sm font-medium hover:text-violet-500 transition-colors duration-200"
-            >
-              anisa@hirenove.com
-            </a>
-            <button
-              onClick={onDiscoveryOpen}
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold px-4 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/25"
-            >
-              Book a Discovery Call
-            </button>
+            <div className="flex flex-col items-start gap-4">
+              <a
+                href="mailto:anisa@hirenove.com"
+                className="text-violet-600 text-sm font-medium hover:text-violet-500 transition-colors duration-200"
+              >
+                anisa@hirenove.com
+              </a>
+              <button
+                onClick={onDiscoveryOpen}
+                className="inline-flex items-center gap-2 text-sm font-semibold px-4 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/25"
+              >
+                Book a Discovery Call
+              </button>
+            </div>
           </div>
 
           {/* Navigation */}
