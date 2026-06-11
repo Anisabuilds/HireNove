@@ -39,7 +39,7 @@ export default function HowWeWork() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="how-we-work" className="py-28" ref={ref}>
+    <section id="how-we-work" className="py-28 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -48,12 +48,12 @@ export default function HowWeWork() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3">Our Approach</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4 max-w-2xl leading-tight">
+          <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">Our Approach</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 mb-4 max-w-2xl leading-tight">
             We start with the problem.{" "}
             <span className="gradient-text-static">Not the software.</span>
           </h2>
-          <p className="text-white/50 text-lg max-w-xl leading-relaxed">
+          <p className="text-slate-500 text-lg max-w-xl leading-relaxed">
             Most firms already have tools. The challenge is how work moves through them.
           </p>
         </motion.div>
@@ -71,25 +71,25 @@ export default function HowWeWork() {
                 onClick={() => setActive(i)}
                 className="w-full text-left rounded-2xl p-6 transition-all duration-300 group"
                 style={{
-                  background: active === i ? `rgba(124,58,237,0.12)` : "rgba(255,255,255,0.02)",
-                  border: active === i ? `1px solid rgba(167,139,250,0.3)` : "1px solid rgba(255,255,255,0.06)",
+                  background: active === i ? `rgba(124,58,237,0.06)` : "rgba(0,0,0,0.02)",
+                  border: active === i ? `1px solid rgba(124,58,237,0.25)` : "1px solid rgba(0,0,0,0.07)",
                 }}
               >
                 <div className="flex items-center gap-4">
                   <span
                     className="text-3xl font-display font-bold leading-none shrink-0 transition-colors duration-300"
-                    style={{ color: active === i ? step.color : "rgba(255,255,255,0.1)" }}
+                    style={{ color: active === i ? step.color : "rgba(0,0,0,0.12)" }}
                   >
                     {step.n}
                   </span>
                   <div>
-                    <p className={`font-display font-semibold transition-colors duration-300 ${active === i ? "text-white" : "text-white/50"}`}>
+                    <p className={`font-display font-semibold transition-colors duration-300 ${active === i ? "text-slate-900" : "text-slate-400"}`}>
                       {step.title}
                     </p>
                     {active === i && (
                       <div className="flex flex-wrap gap-1.5 mt-2">
                         {step.tags.map((t) => (
-                          <span key={t} className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(124,58,237,0.2)", color: "#A78BFA" }}>
+                          <span key={t} className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(124,58,237,0.1)", color: "#7C3AED" }}>
                             {t}
                           </span>
                         ))}
@@ -107,8 +107,8 @@ export default function HowWeWork() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="lg:sticky lg:top-28 rounded-3xl p-10"
-            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)" }}
+            className="lg:sticky lg:top-28 rounded-3xl p-10 bg-white"
+            style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}
           >
             <div
               className="text-7xl font-display font-bold mb-4 leading-none"
@@ -116,15 +116,15 @@ export default function HowWeWork() {
             >
               {steps[active].n}
             </div>
-            <h3 className="text-2xl font-display font-bold text-white mb-4">{steps[active].title}</h3>
-            <p className="text-white/55 leading-relaxed text-base">{steps[active].desc}</p>
+            <h3 className="text-2xl font-display font-bold text-slate-900 mb-4">{steps[active].title}</h3>
+            <p className="text-slate-500 leading-relaxed text-base">{steps[active].desc}</p>
 
             <div className="mt-8 flex flex-wrap gap-2">
               {steps[active].tags.map((t) => (
                 <span
                   key={t}
                   className="text-xs font-medium px-3 py-1.5 rounded-full"
-                  style={{ background: "rgba(124,58,237,0.15)", color: "#A78BFA", border: "1px solid rgba(167,139,250,0.2)" }}
+                  style={{ background: "rgba(124,58,237,0.08)", color: "#7C3AED", border: "1px solid rgba(124,58,237,0.18)" }}
                 >
                   {t}
                 </span>
@@ -140,7 +140,7 @@ export default function HowWeWork() {
                   className="h-1 rounded-full transition-all duration-300"
                   style={{
                     width: active === i ? "24px" : "8px",
-                    background: active === i ? steps[active].color : "rgba(255,255,255,0.15)",
+                    background: active === i ? steps[active].color : "rgba(0,0,0,0.12)",
                   }}
                 />
               ))}

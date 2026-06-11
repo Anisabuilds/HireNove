@@ -17,10 +17,7 @@ const questions = [
   { id: "q10", label: "What do you keep postponing because there's never time?" },
 ];
 
-const sizes = ["1–5", "6–20", "21–50", "51–200", "200+"];
 type FormState = "idle" | "loading" | "success" | "error";
-
-const STEPS = ["Your Details", "Your Experience"];
 
 export default function HelpUsLearnModal({
   open,
@@ -29,23 +26,20 @@ export default function HelpUsLearnModal({
   open: boolean;
   onClose: () => void;
 }) {
-  const [step, setStep] = useState(0);
   const [formState, setFormState] = useState<FormState>("idle");
   const [form, setForm] = useState({
-    name: "", email: "", phone: "", company: "", size: "", role: "",
+    email: "", company: "",
     q1: "", q2: "", q3: "", q4: "", q5: "", q6: "", q7: "", q8: "", q9: "", q10: "",
   });
 
   const set = (k: string, v: string) => setForm((p) => ({ ...p, [k]: v }));
 
-  // Close on Escape
   useEffect(() => {
     const fn = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     if (open) window.addEventListener("keydown", fn);
     return () => window.removeEventListener("keydown", fn);
   }, [open, onClose]);
 
-  // Lock body scroll
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -53,13 +47,13 @@ export default function HelpUsLearnModal({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.company) return;
+    if (!form.email || !form.company) return;
     setFormState("loading");
     try {
       const res = await fetch("/api/research", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, name: "", phone: "", size: "", role: "" }),
       });
       if (!res.ok) throw new Error();
       setFormState("success");
@@ -69,10 +63,8 @@ export default function HelpUsLearnModal({
   };
 
   const reset = () => {
-    setStep(0);
     setFormState("idle");
-    setForm({ name: "", email: "", phone: "", company: "", size: "", role: "",
-      q1: "", q2: "", q3: "", q4: "", q5: "", q6: "", q7: "", q8: "", q9: "", q10: "" });
+    setForm({ email: "", company: "", q1: "", q2: "", q3: "", q4: "", q5: "", q6: "", q7: "", q8: "", q9: "", q10: "" });
   };
 
   return (
@@ -87,7 +79,7 @@ export default function HelpUsLearnModal({
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-50"
-            style={{ background: "rgba(5,13,26,0.88)", backdropFilter: "blur(8px)" }}
+            style={{ background: "rgba(15,23,42,0.5)", backdropFilter: "blur(6px)" }}
             onClick={onClose}
           />
 
@@ -101,176 +93,104 @@ export default function HelpUsLearnModal({
             className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
           >
             <div
-              className="relative w-full max-w-2xl max-h-[90vh] overflow-hidden rounded-3xl pointer-events-auto"
-              style={{ background: "#0D1B2E", border: "1px solid rgba(167,139,250,0.15)" }}
+              className="relative w-full max-w-2xl max-h-[90vh] overflow-hidden rounded-3xl pointer-events-auto bg-white"
+              style={{ border: "1px solid rgba(0,0,0,0.1)", boxShadow: "0 24px 80px rgba(0,0,0,0.15)" }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div
-                className="flex items-start justify-between p-8 pb-0"
-              >
+              <div className="flex items-start justify-between p-8 pb-0">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-1">Research</p>
-                  <h2 className="text-xl font-display font-bold text-white">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-1">Research</p>
+                  <h2 className="text-xl font-display font-bold text-slate-900">
                     Help us understand what slows recruiters down.
                   </h2>
-                  <p className="text-white/40 text-sm mt-1">
+                  <p className="text-slate-400 text-sm mt-1">
                     No right or wrong answers — we're listening.
                   </p>
                 </div>
                 <button
                   onClick={onClose}
-                  className="ml-4 shrink-0 w-9 h-9 rounded-xl flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 transition-all duration-200"
+                  className="ml-4 shrink-0 w-9 h-9 rounded-xl flex items-center justify-center text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-all duration-200"
                 >
                   <X size={18} />
                 </button>
               </div>
 
-              {/* Step tabs */}
-              {formState !== "success" && (
-                <div className="flex gap-2 px-8 pt-5 pb-0">
-                  {STEPS.map((s, i) => (
-                    <button
-                      key={s}
-                      onClick={() => i < step && setStep(i)}
-                      className={cn(
-                        "flex-1 py-2 text-xs font-semibold rounded-lg transition-all duration-200",
-                        step === i
-                          ? "text-violet-300"
-                          : i < step
-                          ? "text-white/40 hover:text-white/60"
-                          : "text-white/20 cursor-default"
-                      )}
-                      style={{
-                        background: step === i ? "rgba(124,58,237,0.15)" : "rgba(255,255,255,0.03)",
-                        border: step === i ? "1px solid rgba(167,139,250,0.3)" : "1px solid rgba(255,255,255,0.06)",
-                      }}
-                    >
-                      {s}
-                    </button>
-                  ))}
-                </div>
-              )}
-
               {/* Scrollable body */}
-              <div className="overflow-y-auto max-h-[calc(90vh-200px)] px-8 py-6">
+              <div className="overflow-y-auto max-h-[calc(90vh-160px)] px-8 py-6">
                 {formState === "success" ? (
                   <div className="text-center py-12">
                     <div
                       className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-                      style={{ background: "rgba(124,58,237,0.2)" }}
+                      style={{ background: "rgba(124,58,237,0.1)" }}
                     >
-                      <svg className="w-8 h-8 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <svg className="w-8 h-8 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="font-display font-bold text-white text-2xl mb-2">Thank you.</h3>
-                    <p className="text-white/45 text-sm mb-8 max-w-sm mx-auto">
+                    <h3 className="font-display font-bold text-slate-900 text-2xl mb-2">Thank you.</h3>
+                    <p className="text-slate-400 text-sm mb-8 max-w-sm mx-auto">
                       Your responses have been saved. We review every submission carefully.
                     </p>
                     <div className="flex gap-3 justify-center">
-                      <button
-                        onClick={reset}
-                        className="text-violet-400 text-sm font-medium hover:text-violet-300 transition-colors"
-                      >
+                      <button onClick={reset} className="text-violet-600 text-sm font-medium hover:text-violet-500 transition-colors">
                         Submit another response
                       </button>
-                      <span className="text-white/20">·</span>
-                      <button
-                        onClick={onClose}
-                        className="text-white/40 text-sm hover:text-white/60 transition-colors"
-                      >
+                      <span className="text-slate-200">·</span>
+                      <button onClick={onClose} className="text-slate-400 text-sm hover:text-slate-600 transition-colors">
                         Close
                       </button>
                     </div>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit}>
-                    <AnimatePresence mode="wait">
-                      {step === 0 && (
-                        <motion.div
-                          key="step0"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -20 }}
-                          transition={{ duration: 0.25 }}
-                          className="grid sm:grid-cols-2 gap-4"
-                        >
-                          <ModalField label="Full Name *" placeholder="Jane Smith" value={form.name} onChange={(v) => set("name", v)} required />
-                          <ModalField label="Email Address *" type="email" placeholder="jane@agency.com" value={form.email} onChange={(v) => set("email", v)} required />
-                          <ModalField label="Phone Number" placeholder="+44 7700 000000" value={form.phone} onChange={(v) => set("phone", v)} />
-                          <ModalField label="Company Name *" placeholder="Acme Recruitment" value={form.company} onChange={(v) => set("company", v)} required />
-                          <ModalSelect label="Team Size" options={sizes.map(s => s + " people")} value={form.size} onChange={(v) => set("size", v)} />
-                          <ModalField label="Your Role" placeholder="Managing Director, Recruiter..." value={form.role} onChange={(v) => set("role", v)} />
-                        </motion.div>
-                      )}
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Minimal required fields */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <ModalField label="Email Address *" type="email" placeholder="jane@agency.com" value={form.email} onChange={(v) => set("email", v)} required />
+                      <ModalField label="Company Name *" placeholder="Acme Recruitment" value={form.company} onChange={(v) => set("company", v)} required />
+                    </div>
 
-                      {step === 1 && (
-                        <motion.div
-                          key="step1"
-                          initial={{ opacity: 0, x: 20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -20 }}
-                          transition={{ duration: 0.25 }}
-                          className="space-y-4"
-                        >
-                          <p className="text-white/30 text-xs mb-2">Answer as many or as few as you'd like.</p>
-                          {questions.map((q) => (
-                            <div key={q.id}>
-                              <label className="block text-xs font-semibold text-white/50 mb-1.5">{q.label}</label>
-                              <textarea
-                                rows={2}
-                                value={form[q.id as keyof typeof form]}
-                                onChange={(e) => set(q.id, e.target.value)}
-                                placeholder="Share whatever comes to mind..."
-                                className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/20 bg-white/5 border border-white/10 focus:outline-none focus:border-violet-500/50 transition-all duration-200 resize-none"
-                              />
-                            </div>
-                          ))}
-                          {formState === "error" && (
-                            <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>
-                          )}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    <div className="border-t border-black/6 pt-5">
+                      <p className="text-slate-400 text-xs mb-4">Answer as many or as few as you'd like.</p>
+                      <div className="space-y-4">
+                        {questions.map((q) => (
+                          <div key={q.id}>
+                            <label className="block text-xs font-semibold text-slate-500 mb-1.5">{q.label}</label>
+                            <textarea
+                              rows={2}
+                              value={form[q.id as keyof typeof form]}
+                              onChange={(e) => set(q.id, e.target.value)}
+                              placeholder="Share whatever comes to mind..."
+                              className="w-full px-4 py-3 rounded-xl text-sm text-slate-900 placeholder-slate-300 bg-slate-50 border border-black/10 focus:outline-none focus:border-violet-400 focus:bg-white transition-all duration-200 resize-none"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
 
-                    {/* Footer buttons */}
-                    <div className="flex items-center justify-between pt-6 mt-2 border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
-                      <button
-                        type="button"
-                        onClick={() => step === 0 ? onClose() : setStep(0)}
-                        className="text-sm text-white/40 hover:text-white/60 transition-colors"
-                      >
-                        {step === 0 ? "Cancel" : "← Back"}
+                    {formState === "error" && (
+                      <p className="text-red-500 text-sm">Something went wrong. Please try again.</p>
+                    )}
+
+                    {/* Footer */}
+                    <div className="flex items-center justify-between pt-4 mt-2 border-t border-black/6">
+                      <button type="button" onClick={onClose} className="text-sm text-slate-400 hover:text-slate-600 transition-colors">
+                        Cancel
                       </button>
-
-                      {step === 0 ? (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            if (!form.name || !form.email || !form.company) return;
-                            setStep(1);
-                          }}
-                          className="inline-flex items-center gap-2 px-6 py-2.5 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-xl text-sm transition-all duration-200"
-                        >
-                          Continue <ArrowRight size={14} />
-                        </button>
-                      ) : (
-                        <button
-                          type="submit"
-                          disabled={formState === "loading"}
-                          className={cn(
-                            "inline-flex items-center gap-2 px-6 py-2.5 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-xl text-sm transition-all duration-200",
-                            formState === "loading" && "opacity-60 cursor-not-allowed"
-                          )}
-                        >
-                          {formState === "loading" ? (
-                            <><Loader2 size={14} className="animate-spin" /> Submitting...</>
-                          ) : (
-                            <>Submit Response <ArrowRight size={14} /></>
-                          )}
-                        </button>
-                      )}
+                      <button
+                        type="submit"
+                        disabled={formState === "loading"}
+                        className={cn(
+                          "inline-flex items-center gap-2 px-6 py-2.5 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-xl text-sm transition-all duration-200",
+                          formState === "loading" && "opacity-60 cursor-not-allowed"
+                        )}
+                      >
+                        {formState === "loading" ? (
+                          <><Loader2 size={14} className="animate-spin" /> Submitting...</>
+                        ) : (
+                          <>Submit Response <ArrowRight size={14} /></>
+                        )}
+                      </button>
                     </div>
                   </form>
                 )}
@@ -289,34 +209,15 @@ function ModalField({ label, type = "text", placeholder, value, onChange, requir
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold text-white/50 mb-1.5">{label}</label>
+      <label className="block text-xs font-semibold text-slate-500 mb-1.5">{label}</label>
       <input
         type={type}
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/20 bg-white/5 border border-white/10 focus:outline-none focus:border-violet-500/50 transition-all duration-200"
+        className="w-full px-4 py-3 rounded-xl text-sm text-slate-900 placeholder-slate-300 bg-slate-50 border border-black/10 focus:outline-none focus:border-violet-400 focus:bg-white transition-all duration-200"
       />
-    </div>
-  );
-}
-
-function ModalSelect({ label, options, value, onChange }: {
-  label: string; options: string[]; value: string; onChange: (v: string) => void;
-}) {
-  return (
-    <div>
-      <label className="block text-xs font-semibold text-white/50 mb-1.5">{label}</label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full px-4 py-3 rounded-xl text-sm text-white/70 bg-white/5 border border-white/10 focus:outline-none focus:border-violet-500/50 transition-all duration-200"
-        style={{ colorScheme: "dark" }}
-      >
-        <option value="" className="bg-[#0D1B2E]">Select...</option>
-        {options.map((o) => <option key={o} value={o} className="bg-[#0D1B2E]">{o}</option>)}
-      </select>
     </div>
   );
 }

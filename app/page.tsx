@@ -10,6 +10,7 @@ import DiscoverySection from "@/components/DiscoverySection";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import HelpUsLearnModal from "@/components/HelpUsLearnModal";
+import MouseTracker from "@/components/MouseTracker";
 
 export default function Home() {
   const [learnOpen, setLearnOpen] = useState(false);
@@ -28,6 +29,7 @@ export default function Home() {
       </main>
       <Footer />
       <HelpUsLearnModal open={learnOpen} onClose={() => setLearnOpen(false)} />
+      <MouseTracker />
     </>
   );
 }

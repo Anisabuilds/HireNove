@@ -36,11 +36,11 @@ export default function DiscoverySection() {
   };
 
   return (
-    <section id="discovery" className="py-28 relative overflow-hidden" ref={ref}>
+    <section id="discovery" className="py-28 bg-slate-50 relative overflow-hidden" ref={ref}>
       {/* BG glow */}
       <div
         className="absolute left-1/2 top-0 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 70%)", filter: "blur(60px)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(124,58,237,0.07) 0%, transparent 70%)", filter: "blur(60px)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -51,11 +51,11 @@ export default function DiscoverySection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3">Discovery Call</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4 leading-tight">
+          <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">Discovery Call</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 mb-4 leading-tight">
             Let's find what's slowing your team down.
           </h2>
-          <p className="text-white/45 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed">
             A focused conversation about how your team operates today. No obligation. We ask questions,
             we listen, and if there's something we can help with, we'll tell you honestly.
           </p>
@@ -76,13 +76,10 @@ export default function DiscoverySection() {
               { t: "Founder-led", s: "You speak directly with Anisa, not an account manager" },
             ].map((item) => (
               <div key={item.t} className="flex items-start gap-4">
-                <div
-                  className="w-1.5 h-1.5 rounded-full mt-2 shrink-0"
-                  style={{ background: "#7C3AED" }}
-                />
+                <div className="w-1.5 h-1.5 rounded-full mt-2 shrink-0 bg-violet-600" />
                 <div>
-                  <p className="text-white font-medium text-sm">{item.t}</p>
-                  <p className="text-white/40 text-xs mt-0.5">{item.s}</p>
+                  <p className="text-slate-900 font-medium text-sm">{item.t}</p>
+                  <p className="text-slate-400 text-xs mt-0.5">{item.s}</p>
                 </div>
               </div>
             ))}
@@ -97,25 +94,25 @@ export default function DiscoverySection() {
           >
             {state === "success" ? (
               <div
-                className="rounded-3xl p-12 text-center"
-                style={{ background: "rgba(124,58,237,0.08)", border: "1px solid rgba(167,139,250,0.2)" }}
+                className="rounded-3xl p-12 text-center bg-white"
+                style={{ border: "1px solid rgba(124,58,237,0.2)" }}
               >
                 <div
                   className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ background: "rgba(124,58,237,0.2)" }}
+                  style={{ background: "rgba(124,58,237,0.1)" }}
                 >
-                  <svg className="w-7 h-7 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="w-7 h-7 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="font-display font-bold text-white text-xl mb-2">Request received.</h3>
-                <p className="text-white/45 text-sm">We'll be in touch within one business day.</p>
+                <h3 className="font-display font-bold text-slate-900 text-xl mb-2">Request received.</h3>
+                <p className="text-slate-500 text-sm">We'll be in touch within one business day.</p>
               </div>
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="rounded-3xl p-8 space-y-5"
-                style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.07)" }}
+                className="rounded-3xl p-8 space-y-5 bg-white"
+                style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}
               >
                 <div className="grid sm:grid-cols-2 gap-4">
                   <Field label="Full Name *" placeholder="Jane Smith" value={form.name} onChange={(v) => set("name", v)} required />
@@ -126,24 +123,24 @@ export default function DiscoverySection() {
                   <SelectField label="Preferred Contact" options={contactMethods} value={form.preferredContact} onChange={(v) => set("preferredContact", v)} />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-white/60 mb-2">Main operational challenge</label>
+                  <label className="block text-xs font-semibold text-slate-500 mb-2">Main operational challenge</label>
                   <textarea
                     rows={4}
                     value={form.problem}
                     onChange={(e) => set("problem", e.target.value)}
                     placeholder="Describe the friction point, process gap, or inefficiency you'd like to address..."
-                    className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/25 bg-white/5 border border-white/10 focus:outline-none focus:border-violet-500/50 focus:bg-white/7 transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 rounded-xl text-sm text-slate-900 placeholder-slate-300 bg-slate-50 border border-black/10 focus:outline-none focus:border-violet-400 focus:bg-white transition-all duration-200 resize-none"
                   />
                 </div>
                 {state === "error" && (
-                  <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>
+                  <p className="text-red-500 text-sm">Something went wrong. Please try again.</p>
                 )}
                 <button
                   type="submit"
                   disabled={state === "loading"}
                   className={cn(
                     "w-full flex items-center justify-center gap-2 py-4 rounded-xl font-semibold text-sm transition-all duration-200",
-                    "bg-violet-600 hover:bg-violet-500 text-white shadow-lg hover:shadow-violet-500/30",
+                    "bg-violet-600 hover:bg-violet-500 text-white shadow-md hover:shadow-violet-500/30",
                     state === "loading" && "opacity-70 cursor-not-allowed"
                   )}
                 >
@@ -153,7 +150,7 @@ export default function DiscoverySection() {
                     <>Request a Discovery Call <ArrowRight size={16} /></>
                   )}
                 </button>
-                <p className="text-xs text-white/25 text-center">We respond within one business day. No commitment required.</p>
+                <p className="text-xs text-slate-400 text-center">We respond within one business day. No commitment required.</p>
               </form>
             )}
           </motion.div>
@@ -169,14 +166,14 @@ function Field({ label, type = "text", placeholder, value, onChange, required }:
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold text-white/50 mb-1.5">{label}</label>
+      <label className="block text-xs font-semibold text-slate-500 mb-1.5">{label}</label>
       <input
         type={type}
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-white/20 bg-white/5 border border-white/10 focus:outline-none focus:border-violet-500/50 transition-all duration-200"
+        className="w-full px-4 py-3 rounded-xl text-sm text-slate-900 placeholder-slate-300 bg-slate-50 border border-black/10 focus:outline-none focus:border-violet-400 focus:bg-white transition-all duration-200"
       />
     </div>
   );
@@ -187,15 +184,14 @@ function SelectField({ label, options, value, onChange }: {
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold text-white/50 mb-1.5">{label}</label>
+      <label className="block text-xs font-semibold text-slate-500 mb-1.5">{label}</label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-4 py-3 rounded-xl text-sm text-white/70 bg-white/5 border border-white/10 focus:outline-none focus:border-violet-500/50 transition-all duration-200"
-        style={{ colorScheme: "dark" }}
+        className="w-full px-4 py-3 rounded-xl text-sm text-slate-600 bg-slate-50 border border-black/10 focus:outline-none focus:border-violet-400 focus:bg-white transition-all duration-200"
       >
-        <option value="" className="bg-navy-900">Select...</option>
-        {options.map((o) => <option key={o} value={o} className="bg-navy-900">{o}</option>)}
+        <option value="">Select...</option>
+        {options.map((o) => <option key={o} value={o}>{o}</option>)}
       </select>
     </div>
   );

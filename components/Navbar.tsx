@@ -25,14 +25,14 @@ export default function Navbar({ onLearnOpen }: { onLearnOpen: () => void }) {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "glass border-b border-white/5 py-3"
+          ? "bg-white/90 backdrop-blur-md border-b border-black/8 shadow-sm py-3"
           : "bg-transparent py-5"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#top" className="relative h-8 w-36 block">
-          <Image src="/logo-white.png" alt="HireNove" fill className="object-contain object-left" />
+          <Image src="/logo-color.png" alt="HireNove" fill className="object-contain object-left" />
         </a>
 
         {/* Desktop links */}
@@ -41,14 +41,14 @@ export default function Navbar({ onLearnOpen }: { onLearnOpen: () => void }) {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-white/60 hover:text-white transition-colors duration-200 font-medium"
+              className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium"
             >
               {l.label}
             </a>
           ))}
           <button
             onClick={onLearnOpen}
-            className="text-sm text-white/60 hover:text-white transition-colors duration-200 font-medium"
+            className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium"
           >
             Help Us Learn
           </button>
@@ -58,7 +58,7 @@ export default function Navbar({ onLearnOpen }: { onLearnOpen: () => void }) {
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#discovery"
-            className="text-sm font-semibold px-5 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-lg hover:shadow-violet-500/30"
+            className="text-sm font-semibold px-5 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/30"
           >
             Book a Discovery Call
           </a>
@@ -66,7 +66,7 @@ export default function Navbar({ onLearnOpen }: { onLearnOpen: () => void }) {
 
         {/* Hamburger */}
         <button
-          className="md:hidden text-white/70 hover:text-white"
+          className="md:hidden text-slate-600 hover:text-slate-900"
           onClick={() => setMobile(!mobile)}
         >
           {mobile ? <X size={22} /> : <Menu size={22} />}
@@ -75,20 +75,20 @@ export default function Navbar({ onLearnOpen }: { onLearnOpen: () => void }) {
 
       {/* Mobile drawer */}
       {mobile && (
-        <div className="md:hidden glass border-t border-white/5 px-6 py-5 space-y-4">
+        <div className="md:hidden bg-white border-t border-black/8 px-6 py-5 space-y-4 shadow-lg">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setMobile(false)}
-              className="block text-sm font-medium text-white/70 hover:text-white"
+              className="block text-sm font-medium text-slate-600 hover:text-slate-900"
             >
               {l.label}
             </a>
           ))}
           <button
             onClick={() => { setMobile(false); onLearnOpen(); }}
-            className="block text-sm font-medium text-white/70 hover:text-white w-full text-left"
+            className="block text-sm font-medium text-slate-600 hover:text-slate-900 w-full text-left"
           >
             Help Us Learn
           </button>

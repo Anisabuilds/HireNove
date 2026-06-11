@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 const cards = [
   {
-    size: "lg", // col-span-2
+    size: "lg",
     title: "Disconnected Tools",
     desc: "Your ATS, CRM, email, LinkedIn, and spreadsheets don't talk to each other — so recruiters become the integration layer, manually moving data between systems all day.",
     icon: "⊗",
@@ -66,7 +66,7 @@ export default function BentoFriction() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="friction" className="py-28" ref={ref}>
+    <section id="friction" className="py-28 bg-slate-50" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -75,8 +75,8 @@ export default function BentoFriction() {
           transition={{ duration: 0.6 }}
           className="mb-6"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-violet-400 mb-3">Common Friction Areas</p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white mb-4 max-w-2xl leading-tight">
+          <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">Common Friction Areas</p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 mb-4 max-w-2xl leading-tight">
             Where recruitment teams lose time every day.
           </h2>
         </motion.div>
@@ -87,11 +87,11 @@ export default function BentoFriction() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="inline-flex items-start gap-3 rounded-xl px-5 py-3 mb-12"
-          style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(167,139,250,0.2)" }}
+          style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.18)" }}
         >
-          <span className="text-violet-400 text-sm">ⓘ</span>
-          <p className="text-sm text-violet-300/80">
-            <strong className="text-violet-300">Examples only.</strong> Every agency is different — every solution we build is tailored to what we find in your specific process.
+          <span className="text-violet-600 text-sm">ⓘ</span>
+          <p className="text-sm text-violet-700">
+            <strong className="text-violet-800">Examples only.</strong> Every agency is different — every solution we build is tailored to what we find in your specific process.
           </p>
         </motion.div>
 
@@ -103,29 +103,24 @@ export default function BentoFriction() {
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.07 }}
-              className={`group rounded-2xl p-7 cursor-default transition-all duration-300 hover:scale-[1.02] ${
+              className={`group rounded-2xl p-7 cursor-default transition-all duration-300 hover:scale-[1.02] bg-white ${
                 card.size === "lg" ? "lg:col-span-2" : ""
               }`}
-              style={{
-                background: "rgba(255,255,255,0.025)",
-                border: "1px solid rgba(255,255,255,0.07)",
-              }}
+              style={{ border: "1px solid rgba(0,0,0,0.07)" }}
               whileHover={{
-                background: `rgba(124,58,237,0.08)`,
-                borderColor: "rgba(167,139,250,0.25)",
+                borderColor: "rgba(124,58,237,0.25)",
+                boxShadow: "0 4px 24px rgba(124,58,237,0.08)",
               }}
             >
               <div className="flex items-start gap-4">
-                <span
-                  className="text-3xl shrink-0 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                >
+                <span className="text-3xl shrink-0 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                   {card.icon}
                 </span>
                 <div>
-                  <h3 className="font-display font-semibold text-white mb-2 text-sm group-hover:text-white transition-colors">
+                  <h3 className="font-display font-semibold text-slate-900 mb-2 text-sm">
                     {card.title}
                   </h3>
-                  <p className="text-white/40 text-xs leading-relaxed group-hover:text-white/60 transition-colors duration-300">
+                  <p className="text-slate-400 text-xs leading-relaxed group-hover:text-slate-500 transition-colors duration-300">
                     {card.desc}
                   </p>
                 </div>
@@ -139,10 +134,10 @@ export default function BentoFriction() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center text-white/25 text-sm mt-10"
+          className="text-center text-slate-400 text-sm mt-10"
         >
           Don't see your challenge here?{" "}
-          <a href="#discovery" className="text-violet-400 hover:text-violet-300 transition-colors">
+          <a href="#discovery" className="text-violet-600 hover:text-violet-500 transition-colors">
             Tell us what's slowing your team down →
           </a>
         </motion.p>
