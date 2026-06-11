@@ -10,7 +10,13 @@ const links = [
   { label: "About", href: "#about" },
 ];
 
-export default function Navbar({ onLearnOpen }: { onLearnOpen: () => void }) {
+export default function Navbar({
+  onLearnOpen,
+  onDiscoveryOpen,
+}: {
+  onLearnOpen: () => void;
+  onDiscoveryOpen: () => void;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [mobile, setMobile] = useState(false);
 
@@ -25,18 +31,18 @@ export default function Navbar({ onLearnOpen }: { onLearnOpen: () => void }) {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-black/8 shadow-sm py-3"
+          ? "bg-white/95 backdrop-blur-md border-b border-black/8 shadow-sm py-3"
           : "bg-transparent py-5"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#top" className="relative h-8 w-36 block">
+        <a href="#top" className="relative h-8 w-36 block shrink-0">
           <Image src="/logo-color.png" alt="HireNove" fill className="object-contain object-left" />
         </a>
 
         {/* Desktop links */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-7">
           {links.map((l) => (
             <a
               key={l.href}
@@ -55,19 +61,20 @@ export default function Navbar({ onLearnOpen }: { onLearnOpen: () => void }) {
         </nav>
 
         {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="#discovery"
-            className="text-sm font-semibold px-5 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/30"
+        <div className="hidden md:flex items-center">
+          <button
+            onClick={onDiscoveryOpen}
+            className="text-sm font-semibold px-5 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/25"
           >
             Book a Discovery Call
-          </a>
+          </button>
         </div>
 
         {/* Hamburger */}
         <button
           className="md:hidden text-slate-600 hover:text-slate-900"
           onClick={() => setMobile(!mobile)}
+          aria-label="Toggle menu"
         >
           {mobile ? <X size={22} /> : <Menu size={22} />}
         </button>
@@ -92,13 +99,12 @@ export default function Navbar({ onLearnOpen }: { onLearnOpen: () => void }) {
           >
             Help Us Learn
           </button>
-          <a
-            href="#discovery"
-            onClick={() => setMobile(false)}
-            className="block w-full text-center bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold py-3 rounded-lg mt-2"
+          <button
+            onClick={() => { setMobile(false); onDiscoveryOpen(); }}
+            className="block w-full text-center bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold py-3 rounded-lg mt-2 transition-colors duration-200"
           >
             Book a Discovery Call
-          </a>
+          </button>
         </div>
       )}
     </header>

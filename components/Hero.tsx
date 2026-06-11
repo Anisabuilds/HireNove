@@ -12,7 +12,7 @@ const fadeUp: Variants = {
   }),
 };
 
-export default function Hero({ onLearnOpen }: { onLearnOpen: () => void }) {
+export default function Hero({ onLearnOpen, onDiscoveryOpen }: { onLearnOpen: () => void; onDiscoveryOpen: () => void }) {
   return (
     <section id="top" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Mesh gradient background */}
@@ -99,13 +99,13 @@ export default function Hero({ onLearnOpen }: { onLearnOpen: () => void }) {
           animate="visible"
           className="flex flex-col sm:flex-row gap-4"
         >
-          <a
-            href="#discovery"
+          <button
+            onClick={onDiscoveryOpen}
             className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-xl transition-all duration-200 text-sm shadow-lg hover:shadow-violet-500/30"
           >
             Book a Discovery Call
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
-          </a>
+          </button>
           <button
             onClick={onLearnOpen}
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-slate-600 hover:text-slate-900 font-semibold text-sm transition-all duration-200 bg-white border border-black/10 hover:border-violet-200 shadow-sm"

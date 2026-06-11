@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 const navLinks = [
@@ -5,10 +6,9 @@ const navLinks = [
   { label: "Friction Areas", href: "#friction" },
   { label: "Why HireNove", href: "#why" },
   { label: "About", href: "#about" },
-  { label: "Book a Call", href: "#discovery" },
 ];
 
-export default function Footer() {
+export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => void }) {
   return (
     <footer className="relative border-t border-black/8 bg-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -28,6 +28,12 @@ export default function Footer() {
             >
               anisa@hirenove.com
             </a>
+            <button
+              onClick={onDiscoveryOpen}
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold px-4 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/25"
+            >
+              Book a Discovery Call
+            </button>
           </div>
 
           {/* Navigation */}

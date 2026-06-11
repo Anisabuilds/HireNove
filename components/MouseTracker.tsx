@@ -19,9 +19,9 @@ export default function MouseTracker() {
       ref={el}
       className="pointer-events-none fixed z-[9999] -translate-x-1/2 -translate-y-1/2"
       style={{
-        width: "280px",
-        height: "280px",
-        background: "radial-gradient(circle, rgba(124,58,237,0.10) 0%, transparent 70%)",
+        width: "160px",
+        height: "160px",
+        background: "radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 70%)",
         transition: "left 0.08s ease, top 0.08s ease",
       }}
     />
