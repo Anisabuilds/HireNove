@@ -26,11 +26,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background: #F8FAFC;
+    background: #F6F7F9;
   }
 
   body {
-    background: #F8FAFC;
+    background: #F6F7F9;
     color: #0F172A;
     font-family: var(--font-inter), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -109,7 +109,7 @@
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #F8FAFC; }
+::-webkit-scrollbar-track { background: #F6F7F9; }
 ::-webkit-scrollbar-thumb { background: #C4B5FD; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
 
