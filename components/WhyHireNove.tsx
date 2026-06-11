@@ -56,7 +56,7 @@ export default function WhyHireNove() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <div
-              className="rounded-3xl p-8 bg-slate-50"
+              className="rounded-3xl p-8 bg-white"
               style={{ border: "1px solid rgba(0,0,0,0.07)" }}
             >
               <p className="text-xs font-semibold text-violet-600 uppercase tracking-widest mb-7">What changes for your team</p>

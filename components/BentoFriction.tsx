@@ -57,7 +57,7 @@ export default function BentoFriction() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="friction" className="py-28 bg-warm-section" ref={ref}>
+    <section id="friction" className="py-28 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
