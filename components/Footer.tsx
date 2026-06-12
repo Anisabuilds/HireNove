@@ -88,7 +88,9 @@ export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => voi
           <p className="text-slate-300 text-xs">
             © {new Date().getFullYear()} HireNove. All rights reserved.
           </p>
-          <p className="text-slate-300 text-xs">Workflow optimisation for recruitment firms.</p>
+          <Link href="/privacy" className="text-slate-300 text-xs hover:text-slate-600 transition-colors duration-200">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </footer>
