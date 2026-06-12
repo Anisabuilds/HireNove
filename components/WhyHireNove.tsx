@@ -35,13 +35,14 @@ export default function WhyHireNove() {
           >
             <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">Why HireNove</p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
-              Most firms already have tools.{" "}
-              <span className="gradient-text-static">The problem is between them.</span>
+              Most recruitment firms don't have a software problem.{" "}
+              <span className="gradient-text-static font-serif-accent">They have a workflow problem.</span>
             </h2>
             <div className="space-y-4 text-slate-500 leading-relaxed mb-8">
-              <p>Recruitment firms invest in ATS platforms, CRM systems, sourcing tools, and communication software. The challenge is rarely a missing product.</p>
-              <p>The challenge is that daily workflows still generate manual work, duplicated effort, and admin friction — because tools don't connect, processes weren't designed for actual volume, or the operating rhythm has evolved beyond what was originally configured.</p>
-              <p className="text-slate-700 font-medium">We focus on improving how work moves through your existing systems — before recommending any new technology.</p>
+              <p>ATS platforms, CRMs, sourcing tools, email systems, and scheduling tools are already in place. Yet recruiters still spend hours every week updating records, moving information between systems, chasing feedback, coordinating interviews, and managing work that should never reach their desk.</p>
+              <p>The result isn't a lack of technology — it's operational friction. Information gets duplicated. Processes break under pressure. Valuable time is spent maintaining systems instead of making placements. Candidates get lost. Deals go quiet not because of bad recruiting, but because the infrastructure around it isn't working.</p>
+              <p>The tools are there. What's missing is how they connect — and how work actually flows between them.</p>
+              <p className="text-slate-700 font-medium">At HireNove, we focus on improving how work moves through your business before recommending any new technology. We fix the friction first.</p>
             </div>
             <button
               onClick={() => document.dispatchEvent(new CustomEvent("openDiscovery"))}
