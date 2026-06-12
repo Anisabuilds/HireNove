@@ -4,6 +4,7 @@ import Marquee from "@/components/Marquee";
 import WhyHireNove from "@/components/WhyHireNove";
 import IntegrationsSection from "@/components/IntegrationsSection";
 import HomeProcess from "@/components/HomeProcess";
+import PilotBanner from "@/components/PilotBanner";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <HomeProcess />
       <WhyHireNove />
       <IntegrationsSection />
+      <PilotBanner />
     </SiteLayout>
   );
 }

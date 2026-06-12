@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import HelpUsLearnModal from "./HelpUsLearnModal";
 import DiscoveryModal from "./DiscoveryModal";
+import PilotModal from "./PilotModal";
 import MouseTracker from "./MouseTracker";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -31,6 +32,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <Footer onDiscoveryOpen={() => setDiscoveryOpen(true)} />
       <HelpUsLearnModal open={learnOpen} onClose={() => setLearnOpen(false)} />
       <DiscoveryModal open={discoveryOpen} onClose={() => setDiscoveryOpen(false)} />
+      <PilotModal />
       <MouseTracker />
     </>
   );
