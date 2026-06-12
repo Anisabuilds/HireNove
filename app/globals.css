@@ -6,11 +6,11 @@
   --color-navy-800: #112040;
   --color-navy-700: #1A3160;
   --color-navy-600: #1E3A8A;
-  --color-violet-600: #5B21B6;
-  --color-violet-500: #6D28D9;
-  --color-violet-400: #7C3AED;
-  --color-violet-200: #C4B5FD;
-  --color-violet-100: #EDE9FE;
+  --color-violet-600: #0E7490;
+  --color-violet-500: #0891B2;
+  --color-violet-400: #06B6D4;
+  --color-violet-200: #A5F3FC;
+  --color-violet-100: #CFFAFE;
   --color-warm-section: #F3EDE5;
 
   --font-family-sans: var(--font-inter), system-ui, sans-serif;
@@ -55,7 +55,7 @@
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #5B21B6 0%, #3730A3 50%, #5B21B6 100%);
+    background: linear-gradient(135deg, #0E7490 0%, #164E63 50%, #0E7490 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -64,7 +64,7 @@
   }
 
   .gradient-text-static {
-    background: linear-gradient(135deg, #5B21B6 0%, #3730A3 100%);
+    background: linear-gradient(135deg, #0E7490 0%, #164E63 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -120,8 +120,8 @@
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #F9F5EF; }
-::-webkit-scrollbar-thumb { background: #C4B5FD; border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: #7C3AED; }
+::-webkit-scrollbar-thumb { background: #A5F3FC; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
 
 input, select, textarea {
   font-family: var(--font-inter), system-ui, sans-serif;

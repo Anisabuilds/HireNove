@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
@@ -40,7 +40,7 @@ export default function DiscoverySection() {
       {/* BG glow */}
       <div
         className="absolute left-1/2 top-0 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, rgba(124,58,237,0.07) 0%, transparent 70%)", filter: "blur(60px)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(6,182,212,0.07) 0%, transparent 70%)", filter: "blur(60px)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6">
@@ -95,11 +95,11 @@ export default function DiscoverySection() {
             {state === "success" ? (
               <div
                 className="rounded-3xl p-12 text-center bg-white"
-                style={{ border: "1px solid rgba(124,58,237,0.2)" }}
+                style={{ border: "1px solid rgba(6,182,212,0.2)" }}
               >
                 <div
                   className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                  style={{ background: "rgba(124,58,237,0.1)" }}
+                  style={{ background: "rgba(6,182,212,0.1)" }}
                 >
                   <svg className="w-7 h-7 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />

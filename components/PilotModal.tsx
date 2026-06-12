@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
@@ -39,7 +39,7 @@ export default function PilotModal() {
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={close} />
       <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden">
         {/* header */}
-        <div className="bg-[#1A0F2E] px-8 py-6">
+        <div className="bg-[#071C2E] px-8 py-6">
           <button onClick={close} className="absolute top-4 right-4 text-white/50 hover:text-white" aria-label="Close">
             <X size={20} />
           </button>

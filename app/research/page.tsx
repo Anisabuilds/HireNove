@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -75,7 +75,7 @@ export default function ResearchPage() {
           >
             <div
               className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
-              style={{ background: "rgba(91,33,182,0.1)" }}
+              style={{ background: "rgba(14,116,144,0.1)" }}
             >
               <svg className="w-8 h-8 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />

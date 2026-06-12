@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 
@@ -8,7 +8,7 @@ const steps = [
     title: "Understand Your Workflow",
     desc: "We learn how your recruitment process actually works today — not how it's documented, but how work genuinely flows. We map tasks, handoffs, tool usage, and the steps that depend on people remembering things.",
     tags: ["Discovery conversations", "Workflow mapping", "Tool audit"],
-    color: "#7C3AED",
+    color: "#06B6D4",
   },
   {
     n: "02",
@@ -71,8 +71,8 @@ export default function HowWeWork() {
                 onClick={() => setActive(i)}
                 className="w-full text-left rounded-2xl p-6 transition-all duration-300 group"
                 style={{
-                  background: active === i ? `rgba(124,58,237,0.06)` : "rgba(0,0,0,0.02)",
-                  border: active === i ? `1px solid rgba(124,58,237,0.25)` : "1px solid rgba(0,0,0,0.07)",
+                  background: active === i ? `rgba(6,182,212,0.06)` : "rgba(0,0,0,0.02)",
+                  border: active === i ? `1px solid rgba(6,182,212,0.25)` : "1px solid rgba(0,0,0,0.07)",
                 }}
               >
                 <div className="flex items-center gap-4">
@@ -89,7 +89,7 @@ export default function HowWeWork() {
                     {active === i && (
                       <div className="flex flex-wrap gap-1.5 mt-2">
                         {step.tags.map((t) => (
-                          <span key={t} className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(124,58,237,0.1)", color: "#7C3AED" }}>
+                          <span key={t} className="text-xs px-2 py-0.5 rounded-full" style={{ background: "rgba(6,182,212,0.1)", color: "#06B6D4" }}>
                             {t}
                           </span>
                         ))}
@@ -124,7 +124,7 @@ export default function HowWeWork() {
                 <span
                   key={t}
                   className="text-xs font-medium px-3 py-1.5 rounded-full"
-                  style={{ background: "rgba(124,58,237,0.08)", color: "#7C3AED", border: "1px solid rgba(124,58,237,0.18)" }}
+                  style={{ background: "rgba(6,182,212,0.08)", color: "#06B6D4", border: "1px solid rgba(6,182,212,0.18)" }}
                 >
                   {t}
                 </span>

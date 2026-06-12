@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import fs from "fs";
 import path from "path";
@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
       .filter(([, v]) => v && String(v).trim())
       .map(([k, v]) => `
         <div style="margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #E2E8F0;">
-          <p style="color: #7C3AED; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 6px;">${questionLabels[k] || k}</p>
+          <p style="color: #06B6D4; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 6px;">${questionLabels[k] || k}</p>
           <p style="color: #0F172A; font-size: 14px; line-height: 1.6; margin: 0;">${String(v)}</p>
         </div>
       `).join("");
@@ -78,14 +78,14 @@ export async function POST(req: NextRequest) {
       subject: `Research Response — ${company}`,
       html: `
         <div style="font-family: Inter, sans-serif; max-width: 620px; margin: 0 auto; background: #ffffff; color: #0F172A; padding: 40px; border-radius: 12px; border: 1px solid #E2E8F0;">
-          <div style="margin-bottom: 32px; padding-bottom: 24px; border-bottom: 2px solid #7C3AED;">
+          <div style="margin-bottom: 32px; padding-bottom: 24px; border-bottom: 2px solid #06B6D4;">
             <h2 style="font-size: 22px; font-weight: 700; margin: 0 0 4px; color: #0F172A;">New Research Submission</h2>
-            <p style="color: #7C3AED; font-size: 13px; margin: 0;">Help Us Learn · hirenove.com</p>
+            <p style="color: #06B6D4; font-size: 13px; margin: 0;">Help Us Learn · hirenove.com</p>
           </div>
 
           <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 24px; margin-bottom: 32px;">
             <table style="width: 100%; border-collapse: collapse;">
-              <tr><td style="padding: 7px 0; color: #64748B; font-size: 13px; width: 120px;">Email</td><td style="padding: 7px 0; font-size: 13px;"><a href="mailto:${email}" style="color: #7C3AED;">${email}</a></td></tr>
+              <tr><td style="padding: 7px 0; color: #64748B; font-size: 13px; width: 120px;">Email</td><td style="padding: 7px 0; font-size: 13px;"><a href="mailto:${email}" style="color: #06B6D4;">${email}</a></td></tr>
               <tr><td style="padding: 7px 0; color: #64748B; font-size: 13px;">Company</td><td style="padding: 7px 0; color: #0F172A; font-size: 13px; font-weight: 600;">${company}</td></tr>
             </table>
           </div>

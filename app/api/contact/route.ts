@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
           </div>
 
           ${problem ? `
-          <div style="background: rgba(124,58,237,0.1); border: 1px solid rgba(167,139,250,0.2); border-radius: 8px; padding: 20px;">
+          <div style="background: rgba(6,182,212,0.1); border: 1px solid rgba(167,139,250,0.2); border-radius: 8px; padding: 20px;">
             <p style="color: #A78BFA; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 8px;">Main Challenge</p>
             <p style="color: #ffffff; font-size: 14px; line-height: 1.6; margin: 0;">${problem}</p>
           </div>

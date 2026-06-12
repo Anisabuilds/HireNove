@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
@@ -79,7 +79,7 @@ export default function BentoFriction() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="inline-flex items-center gap-2.5 rounded-lg px-4 py-2.5 mb-12"
-          style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.15)" }}
+          style={{ background: "rgba(6,182,212,0.06)", border: "1px solid rgba(6,182,212,0.15)" }}
         >
           <span className="w-1 h-1 rounded-full bg-violet-500 shrink-0" />
           <p className="text-sm text-violet-700">
@@ -101,14 +101,14 @@ export default function BentoFriction() {
               }`}
               style={{ border: "1px solid rgba(0,0,0,0.07)" }}
               whileHover={{
-                borderColor: "rgba(124,58,237,0.22)",
-                boxShadow: "0 2px 20px rgba(124,58,237,0.07)",
+                borderColor: "rgba(6,182,212,0.22)",
+                boxShadow: "0 2px 20px rgba(6,182,212,0.07)",
               }}
             >
               {/* Icon */}
               <div
                 className="w-9 h-9 rounded-lg flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-violet-100"
-                style={{ background: "rgba(124,58,237,0.08)" }}
+                style={{ background: "rgba(6,182,212,0.08)" }}
               >
                 <card.Icon size={17} className="text-violet-600" strokeWidth={1.75} />
               </div>

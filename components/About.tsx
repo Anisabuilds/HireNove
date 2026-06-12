@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
@@ -23,7 +23,7 @@ export default function About() {
               <div
                 className="absolute inset-0 rounded-full pointer-events-none"
                 style={{
-                  background: "radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%)",
+                  background: "radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%)",
                   filter: "blur(30px)",
                   transform: "scale(1.2)",
                 }}
@@ -31,7 +31,7 @@ export default function About() {
               {/* Photo */}
               <div
                 className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full overflow-hidden float-anim"
-                style={{ border: "2px solid rgba(124,58,237,0.15)" }}
+                style={{ border: "2px solid rgba(6,182,212,0.15)" }}
               >
                 <Image
                   src="/founder.png"

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -6,19 +6,19 @@ import Image from "next/image";
 type Tool = { name: string; icon?: string };
 
 const automationTools: Tool[] = [
-  { name: "OpenAI",   icon: "https://cdn.simpleicons.org/openai/5B21B6" },
-  { name: "Claude",   icon: "https://cdn.simpleicons.org/anthropic/5B21B6" },
-  { name: "n8n",      icon: "https://cdn.simpleicons.org/n8n/5B21B6" },
-  { name: "Zapier",   icon: "https://cdn.simpleicons.org/zapier/5B21B6" },
-  { name: "Make",     icon: "https://cdn.simpleicons.org/make/5B21B6" },
-  { name: "Airtable", icon: "https://cdn.simpleicons.org/airtable/5B21B6" },
-  { name: "Notion",   icon: "https://cdn.simpleicons.org/notion/5B21B6" },
-  { name: "Slack",    icon: "https://cdn.simpleicons.org/slack/5B21B6" },
+  { name: "OpenAI",   icon: "https://cdn.simpleicons.org/openai/0E7490" },
+  { name: "Claude",   icon: "https://cdn.simpleicons.org/anthropic/0E7490" },
+  { name: "n8n",      icon: "https://cdn.simpleicons.org/n8n/0E7490" },
+  { name: "Zapier",   icon: "https://cdn.simpleicons.org/zapier/0E7490" },
+  { name: "Make",     icon: "https://cdn.simpleicons.org/make/0E7490" },
+  { name: "Airtable", icon: "https://cdn.simpleicons.org/airtable/0E7490" },
+  { name: "Notion",   icon: "https://cdn.simpleicons.org/notion/0E7490" },
+  { name: "Slack",    icon: "https://cdn.simpleicons.org/slack/0E7490" },
 ];
 
 const recruitmentTools: Tool[] = [
-  { name: "LinkedIn",   icon: "https://cdn.simpleicons.org/linkedin/5B21B6" },
-  { name: "Calendly",  icon: "https://cdn.simpleicons.org/calendly/5B21B6" },
+  { name: "LinkedIn",   icon: "https://cdn.simpleicons.org/linkedin/0E7490" },
+  { name: "Calendly",  icon: "https://cdn.simpleicons.org/calendly/0E7490" },
   { name: "Greenhouse" },
   { name: "Bullhorn" },
   { name: "Ashby" },

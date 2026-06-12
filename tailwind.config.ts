@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+﻿import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -17,11 +17,11 @@ const config: Config = {
           600: "#1E3A8A",
         },
         violet: {
-          600: "#7C3AED",
+          600: "#06B6D4",
           500: "#8B5CF6",
           400: "#A78BFA",
           200: "#DDD6FE",
-          100: "#EDE9FE",
+          100: "#CFFAFE",
         },
       },
       fontFamily: {

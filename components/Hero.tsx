@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
@@ -21,7 +21,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <div
           className="absolute top-0 left-1/4 w-[800px] h-[800px] rounded-full opacity-10"
-          style={{ background: "radial-gradient(circle, #7C3AED 0%, transparent 70%)", filter: "blur(80px)" }}
+          style={{ background: "radial-gradient(circle, #06B6D4 0%, transparent 70%)", filter: "blur(80px)" }}
         />
         <div
           className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full opacity-8"
@@ -51,7 +51,7 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
           className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full"
-          style={{ background: "rgba(124,58,237,0.08)", border: "1px solid rgba(124,58,237,0.2)" }}
+          style={{ background: "rgba(6,182,212,0.08)", border: "1px solid rgba(6,182,212,0.2)" }}
         >
           <span className="w-1.5 h-1.5 rounded-full bg-violet-600" />
           <span className="text-xs font-semibold text-violet-700 tracking-widest uppercase">

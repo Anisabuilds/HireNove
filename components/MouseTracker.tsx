@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useEffect, useRef } from "react";
 
 export default function MouseTracker() {
@@ -21,7 +21,7 @@ export default function MouseTracker() {
       style={{
         width: "160px",
         height: "160px",
-        background: "radial-gradient(circle, rgba(124,58,237,0.14) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(6,182,212,0.14) 0%, transparent 70%)",
         transition: "left 0.08s ease, top 0.08s ease",
       }}
     />

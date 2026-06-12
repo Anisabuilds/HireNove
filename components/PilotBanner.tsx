@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { motion } from "framer-motion";
 
 export default function PilotBanner() {
@@ -6,13 +6,13 @@ export default function PilotBanner() {
     document.dispatchEvent(new CustomEvent("openPilot"));
 
   return (
-    <section className="relative overflow-hidden bg-[#1A0F2E] py-24 px-6">
+    <section className="relative overflow-hidden bg-[#071C2E] py-24 px-6">
       {/* subtle radial glow */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(91,33,182,0.35) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(14,116,144,0.35) 0%, transparent 70%)",
         }}
       />
 

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import { X, Loader2, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -92,7 +92,7 @@ export default function DiscoveryModal({
                 <div className="py-10 text-center">
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
-                    style={{ background: "rgba(124,58,237,0.1)" }}
+                    style={{ background: "rgba(6,182,212,0.1)" }}
                   >
                     <svg className="w-7 h-7 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />

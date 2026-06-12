@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import { X, Loader2, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -122,7 +122,7 @@ export default function HelpUsLearnModal({
                   <div className="text-center py-12">
                     <div
                       className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-                      style={{ background: "rgba(124,58,237,0.1)" }}
+                      style={{ background: "rgba(6,182,212,0.1)" }}
                     >
                       <svg className="w-8 h-8 text-violet-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
