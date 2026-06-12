@@ -1,14 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-
-const navLinks = [
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-  { label: "Research", href: "/research" },
-];
+import { useLang } from "@/lib/LanguageContext";
+import { t, tr } from "@/lib/translations";
 
 export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => void }) {
+  const { lang } = useLang();
+  const navLinks = [
+    { label: tr(t.footer.services, lang), href: "/services" },
+    { label: tr(t.footer.about,    lang), href: "/about" },
+    { label: tr(t.footer.research, lang), href: "/research" },
+  ];
   return (
     <footer className="relative border-t border-black/8 bg-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -19,8 +21,7 @@ export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => voi
               <Image src="/logo-color.png" alt="HireNove" fill className="object-contain object-left" />
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs mb-5">
-              Workflow optimisation for recruitment firms. We help recruiters spend less time on admin
-              and more time on what matters.
+              {tr(t.footer.tagline, lang)}
             </p>
             <div className="flex flex-col items-start gap-4">
               <a
@@ -40,7 +41,7 @@ export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => voi
 
           {/* Navigation */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-300 mb-5">Navigation</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-300 mb-5">{tr(t.footer.nav, lang)}</p>
             <nav className="space-y-3">
               {navLinks.map((l) => (
                 <Link
@@ -56,7 +57,7 @@ export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => voi
 
           {/* Contact */}
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-300 mb-5">Connect</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-300 mb-5">{tr(t.footer.connect, lang)}</p>
             <div className="space-y-3">
               <a
                 href="mailto:anisa@hirenove.com"
@@ -86,10 +87,10 @@ export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => voi
       <div className="border-t border-black/6">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-slate-300 text-xs">
-            © {new Date().getFullYear()} HireNove. All rights reserved.
+            © {new Date().getFullYear()} HireNove. {tr(t.footer.rights, lang)}
           </p>
           <Link href="/privacy" className="text-slate-300 text-xs hover:text-slate-600 transition-colors duration-200">
-            Privacy Policy
+            {tr(t.footer.privacy, lang)}
           </Link>
         </div>
       </div>

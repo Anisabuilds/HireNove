@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { useLang } from "@/lib/LanguageContext";
+import { t, tr } from "@/lib/translations";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -16,6 +18,7 @@ const fadeUp: Variants = {
 export default function Hero() {
   const onLearnOpen = () => document.dispatchEvent(new CustomEvent("openLearn"));
   const onDiscoveryOpen = () => document.dispatchEvent(new CustomEvent("openDiscovery"));
+  const { lang } = useLang();
   return (
     <section id="top" className="relative min-h-screen flex flex-col justify-center overflow-hidden">
       {/* Mesh gradient background */}
@@ -56,7 +59,7 @@ export default function Hero() {
         >
           <span className="w-1.5 h-1.5 rounded-full bg-violet-600" />
           <span className="text-xs font-semibold text-violet-600 tracking-widest uppercase">
-            Workflow Optimisation · Recruitment Firms
+            {tr(t.hero.badge, lang)}
           </span>
         </motion.div>
 
@@ -68,8 +71,7 @@ export default function Hero() {
           animate="visible"
           className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-[1.05] mb-6 max-w-4xl text-balance text-slate-900"
         >
-          Recruiters should spend time{" "}
-          <span className="gradient-text font-serif-accent">recruiting.</span>
+          {tr(t.hero.headline, lang)}
         </motion.h1>
 
         {/* Sub */}
@@ -80,8 +82,7 @@ export default function Hero() {
           animate="visible"
           className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl mb-4"
         >
-          Not updating systems. Not copying data. Not chasing information.
-          Not losing time and placements. Not fighting disconnected tools.
+          {tr(t.hero.sub1, lang)}
         </motion.p>
         <motion.p
           custom={3}
@@ -90,8 +91,7 @@ export default function Hero() {
           animate="visible"
           className="text-base text-slate-400 max-w-xl mb-12"
         >
-          HireNove works directly with recruitment agencies to identify pain points,
-          connect existing tools, implement AI, and eliminate operational friction — custom-built around your process.
+          {tr(t.hero.sub2, lang)}
         </motion.p>
 
         {/* CTAs */}
@@ -106,14 +106,14 @@ export default function Hero() {
             onClick={onDiscoveryOpen}
             className="group inline-flex items-center justify-center gap-2 px-7 py-4 bg-violet-600 hover:bg-violet-500 text-white font-semibold rounded-xl transition-all duration-200 text-sm shadow-lg hover:shadow-violet-500/30"
           >
-            Book a Discovery Call
+            {tr(t.hero.cta1, lang)}
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
           </button>
           <button
             onClick={onLearnOpen}
             className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-slate-600 hover:text-slate-900 font-semibold text-sm transition-all duration-200 bg-white border border-black/10 hover:border-violet-200 shadow-sm"
           >
-            Help Us Learn
+            {tr(t.hero.cta2, lang)}
             <span className="text-violet-600">→</span>
           </button>
         </motion.div>

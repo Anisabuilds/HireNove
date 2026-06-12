@@ -6,6 +6,7 @@ import HelpUsLearnModal from "./HelpUsLearnModal";
 import DiscoveryModal from "./DiscoveryModal";
 import PilotModal from "./PilotModal";
 import MouseTracker from "./MouseTracker";
+import { LanguageProvider } from "@/lib/LanguageContext";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   const [learnOpen, setLearnOpen] = useState(false);
@@ -23,7 +24,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   return (
-    <>
+    <LanguageProvider>
       <Navbar
         onLearnOpen={() => setLearnOpen(true)}
         onDiscoveryOpen={() => setDiscoveryOpen(true)}
@@ -34,6 +35,6 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <DiscoveryModal open={discoveryOpen} onClose={() => setDiscoveryOpen(false)} />
       <PilotModal />
       <MouseTracker />
-    </>
+    </LanguageProvider>
   );
 }

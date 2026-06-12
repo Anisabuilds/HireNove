@@ -5,12 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-
-const links = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
-];
+import { useLang } from "@/lib/LanguageContext";
+import { t, tr } from "@/lib/translations";
 
 export default function Navbar({
   onLearnOpen,
@@ -22,6 +18,13 @@ export default function Navbar({
   const [scrolled, setScrolled] = useState(false);
   const [mobile, setMobile] = useState(false);
   const pathname = usePathname();
+  const { lang, toggle } = useLang();
+
+  const links = [
+    { label: tr(t.nav.home,     lang), href: "/" },
+    { label: tr(t.nav.services, lang), href: "/services" },
+    { label: tr(t.nav.about,    lang), href: "/about" },
+  ];
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 30);
@@ -44,7 +47,7 @@ export default function Navbar({
           <Image src="/logo-color.png" alt="HireNove" fill className="object-contain object-left" />
         </Link>
 
-        {/* Desktop links — centered */}
+        {/* Desktop links */}
         <nav className="hidden md:flex items-center gap-4 flex-1 justify-center">
           {links.map((l) => (
             <Link
@@ -58,27 +61,28 @@ export default function Navbar({
               {l.label}
             </Link>
           ))}
-          <button
-            onClick={onLearnOpen}
-            className="text-base text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium whitespace-nowrap"
-          >
-            Help Us Learn
+          <button onClick={onLearnOpen} className="text-base text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium whitespace-nowrap">
+            {tr(t.nav.helpLearn, lang)}
           </button>
-          <button
-            onClick={onDiscoveryOpen}
-            className="text-base text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium whitespace-nowrap"
-          >
-            Contact
+          <button onClick={onDiscoveryOpen} className="text-base text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium whitespace-nowrap">
+            {tr(t.nav.contact, lang)}
           </button>
         </nav>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center shrink-0">
+        {/* Right side: lang toggle + CTA */}
+        <div className="hidden md:flex items-center gap-3 shrink-0">
+          {/* Language toggle */}
+          <button
+            onClick={toggle}
+            className="text-xs font-semibold tracking-widest uppercase px-2.5 py-1 rounded-md border border-black/10 text-slate-500 hover:text-slate-900 hover:border-violet-400 transition-all duration-200"
+          >
+            {lang === "en" ? "DE" : "EN"}
+          </button>
           <button
             onClick={onDiscoveryOpen}
             className="text-base font-semibold px-5 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/25 whitespace-nowrap"
           >
-            Book a Call
+            {tr(t.nav.bookCall, lang)}
           </button>
         </div>
 
@@ -96,33 +100,24 @@ export default function Navbar({
       {mobile && (
         <div className="md:hidden bg-white border-t border-black/8 px-6 py-5 space-y-4 shadow-lg">
           {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onClick={() => setMobile(false)}
-              className="block text-sm font-medium text-slate-600 hover:text-slate-900"
-            >
+            <Link key={l.href} href={l.href} onClick={() => setMobile(false)} className="block text-sm font-medium text-slate-600 hover:text-slate-900">
               {l.label}
             </Link>
           ))}
-          <button
-            onClick={() => { setMobile(false); onLearnOpen(); }}
-            className="block text-sm font-medium text-slate-600 hover:text-slate-900 w-full text-left"
-          >
-            Help Us Learn
+          <button onClick={() => { setMobile(false); onLearnOpen(); }} className="block text-sm font-medium text-slate-600 hover:text-slate-900 w-full text-left">
+            {tr(t.nav.helpLearn, lang)}
           </button>
-          <button
-            onClick={() => { setMobile(false); onDiscoveryOpen(); }}
-            className="block text-sm font-medium text-slate-600 hover:text-slate-900 w-full text-left"
-          >
-            Contact
+          <button onClick={() => { setMobile(false); onDiscoveryOpen(); }} className="block text-sm font-medium text-slate-600 hover:text-slate-900 w-full text-left">
+            {tr(t.nav.contact, lang)}
           </button>
-          <button
-            onClick={() => { setMobile(false); onDiscoveryOpen(); }}
-            className="block w-full text-center bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold py-3 rounded-lg mt-2 transition-colors duration-200"
-          >
-            Book a Discovery Call
-          </button>
+          <div className="flex gap-3 pt-1">
+            <button onClick={toggle} className="text-xs font-semibold tracking-widest uppercase px-3 py-2 rounded-md border border-black/10 text-slate-500">
+              {lang === "en" ? "DE" : "EN"}
+            </button>
+            <button onClick={() => { setMobile(false); onDiscoveryOpen(); }} className="flex-1 text-center bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold py-2 rounded-lg transition-colors duration-200">
+              {tr(t.nav.bookCall, lang)}
+            </button>
+          </div>
         </div>
       )}
     </header>
