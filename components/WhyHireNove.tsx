@@ -9,6 +9,8 @@ const outcomes = [
   { label: "Fewer process errors", sub: "Replace memory-dependent steps with reliable systems." },
   { label: "More time for candidates", sub: "Relationship work instead of administrative overhead." },
   { label: "More focus on placements", sub: "The output that actually matters." },
+  { label: "No placements lost", sub: "Nothing falls through the cracks when systems do the remembering." },
+  { label: "Higher lead qualification", sub: "More time to evaluate the right candidates — not just the most recent ones." },
 ];
 
 export default function WhyHireNove() {
