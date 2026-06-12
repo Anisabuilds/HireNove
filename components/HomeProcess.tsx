@@ -42,7 +42,7 @@ function StepRow({ step, index, isRight }: { step: { n: string; title: string; d
       )}
 
       <div className="w-full py-16 px-8">
-        <div className={`max-w-2xl ${isRight ? "ml-auto text-right pr-4 lg:pr-16" : "text-left pl-4 lg:pl-16"}`}>
+        <div className={`max-w-[75vw] ${isRight ? "ml-auto text-right pr-6 lg:pr-24" : "text-left pl-6 lg:pl-24"}`}>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay: 0.1 }}>
             <span className="inline-block text-xs font-semibold uppercase tracking-widest mb-3" style={{ color }}>
               Step {step.n}
