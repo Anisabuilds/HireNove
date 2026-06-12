@@ -8,7 +8,7 @@ const steps = [
   {
     n: "01",
     title: "Understand Your Workflow",
-    desc: "We map how work actually flows — not how it's documented, but how it genuinely operates day to day. No assumptions.",
+    desc: "Every recruitment firm operates differently. We start with a discovery call to understand how your team works, which systems and tools you use, and where operational challenges exist within the recruitment process. By speaking directly with the people involved, we gain insight into the workflows, bottlenecks, and repetitive tasks that affect productivity and performance. This ensures that any recommendations are based on the realities of your business — not assumptions.",
     color: "#0E7490",
     align: "left",
   },
