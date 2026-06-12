@@ -90,7 +90,7 @@ export default function Hero() {
           className="text-base text-slate-400 max-w-xl mb-12"
         >
           HireNove works directly with recruitment agencies to identify bottlenecks,
-          connect existing tools, and eliminate operational friction — custom-built around your process.
+          connect existing tools, implement AI, and eliminate operational friction — custom-built around your process.
         </motion.p>
 
         {/* CTAs */}
