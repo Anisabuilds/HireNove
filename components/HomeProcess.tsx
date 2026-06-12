@@ -74,8 +74,8 @@ function StepRow({ step, index }: { step: typeof steps[0]; index: number }) {
       )}
 
       {/* Content */}
-      <div className="max-w-7xl mx-auto px-6 w-full py-16">
-        <div className={`max-w-2xl ${isRight ? "ml-auto text-right" : "text-left"}`}>
+      <div className="w-full py-16 px-8">
+        <div className={`max-w-2xl ${isRight ? "ml-auto text-right pr-4 lg:pr-16" : "text-left pl-4 lg:pl-16"}`}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
