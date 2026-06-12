@@ -1,6 +1,7 @@
 ﻿"use client";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
 const fadeUp: Variants = {
@@ -116,6 +117,11 @@ export default function Hero() {
             <span className="text-violet-600">→</span>
           </button>
         </motion.div>
+      </div>
+
+      {/* Decorative H logo */}
+      <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-[420px] h-[420px] opacity-[0.06] select-none hidden lg:block">
+        <Image src="/logo-symbol.png" alt="" fill className="object-contain object-right" />
       </div>
 
       {/* Scroll cue */}
