@@ -18,7 +18,7 @@ export default function Navbar({
   const [scrolled, setScrolled] = useState(false);
   const [mobile, setMobile] = useState(false);
   const pathname = usePathname();
-  const { lang, toggle } = useLang();
+  const { lang } = useLang();
 
   const links = [
     { label: tr(t.nav.home,     lang), href: "/" },
@@ -69,15 +69,8 @@ export default function Navbar({
           </button>
         </nav>
 
-        {/* Right side: lang toggle + CTA */}
+        {/* Right side: CTA */}
         <div className="hidden md:flex items-center gap-3 shrink-0">
-          {/* Language toggle */}
-          <button
-            onClick={toggle}
-            className="text-xs font-semibold tracking-widest uppercase px-2.5 py-1 rounded-md border border-black/10 text-slate-500 hover:text-slate-900 hover:border-violet-400 transition-all duration-200"
-          >
-            {lang === "en" ? "DE" : "EN"}
-          </button>
           <button
             onClick={onDiscoveryOpen}
             className="text-base font-semibold px-5 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white transition-all duration-200 shadow-md hover:shadow-violet-500/25 whitespace-nowrap"
@@ -111,9 +104,6 @@ export default function Navbar({
             {tr(t.nav.contact, lang)}
           </button>
           <div className="flex gap-3 pt-1">
-            <button onClick={toggle} className="text-xs font-semibold tracking-widest uppercase px-3 py-2 rounded-md border border-black/10 text-slate-500">
-              {lang === "en" ? "DE" : "EN"}
-            </button>
             <button onClick={() => { setMobile(false); onDiscoveryOpen(); }} className="flex-1 text-center bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold py-2 rounded-lg transition-colors duration-200">
               {tr(t.nav.bookCall, lang)}
             </button>
