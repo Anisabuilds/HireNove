@@ -43,7 +43,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 flex flex-col items-center text-center">
         {/* Eyebrow */}
         <motion.div
           custom={0}
@@ -80,7 +80,7 @@ export default function Hero() {
           className="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl mb-4"
         >
           Not updating systems. Not copying data. Not chasing information.
-          Not fighting disconnected tools.
+          Not losing time and placements. Not fighting disconnected tools.
         </motion.p>
         <motion.p
           custom={3}
@@ -115,29 +115,6 @@ export default function Hero() {
             Help Us Learn
             <span className="text-violet-600">→</span>
           </button>
-        </motion.div>
-
-        {/* Floating stat cards */}
-        <motion.div
-          custom={5}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl"
-        >
-          {[
-            { label: "Hours/week", sub: "lost to admin that shouldn't exist" },
-            { label: "Disconnected tools", sub: "creating friction across every workflow" },
-            { label: "Custom-built", sub: "solutions — never a template" },
-          ].map((s) => (
-            <div
-              key={s.label}
-              className="bg-white rounded-xl p-5 border border-black/8 shadow-sm hover:border-violet-200 hover:shadow-md transition-all duration-300"
-            >
-              <p className="font-display font-bold text-slate-900 text-base mb-1">{s.label}</p>
-              <p className="text-slate-400 text-xs">{s.sub}</p>
-            </div>
-          ))}
         </motion.div>
       </div>
 
