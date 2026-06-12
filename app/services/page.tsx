@@ -13,8 +13,8 @@ export default function ServicesPage() {
     <SiteLayout>
       {/* Page hero */}
       <section className="pt-36 pb-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">Services</p>
+        <div className="max-w-7xl mx-auto px-6 text-center flex flex-col items-center">
+          <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">Our Process</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-slate-900 leading-tight max-w-3xl mb-5">
             How we find and fix
             <br />
