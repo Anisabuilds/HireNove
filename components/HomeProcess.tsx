@@ -22,14 +22,14 @@ const steps = [
   {
     n: "03",
     title: "Design & Implement",
-    desc: "A tailored solution built around your existing tools — never a template. We stay until it's fully embedded.",
+    desc: "Based on what we learn during the discovery process, we put together a plan for improving the way work flows through your business. We then present our recommendations and provide a proposal outlining the work involved and the next steps. Once approved, we begin implementing the agreed improvements — whether that involves workflow changes, system integrations, automation, or process improvements.",
     color: "#06B6D4",
     align: "left",
   },
   {
     n: "04",
     title: "Ongoing Maintenance & Updates",
-    desc: "Processes evolve. We stay on hand for bug fixes, improvements, and new automations as your team grows.",
+    desc: "Our work doesn't end after implementation. We continue to support your team by resolving issues, making adjustments where needed, and identifying further opportunities for improvement as your business evolves. This ensures the solution remains effective and continues to support your team's day-to-day operations over time.",
     color: "#0E7490",
     align: "right",
   },
