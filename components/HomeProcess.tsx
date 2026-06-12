@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -10,166 +10,141 @@ const steps = [
     title: "Understand Your Workflow",
     desc: "We map how work actually flows — not how it's documented, but how it genuinely operates day to day. No assumptions.",
     color: "#0E7490",
+    align: "left",
   },
   {
     n: "02",
     title: "Identify Bottlenecks",
     desc: "Every friction point ranked by impact. We find exactly where time is lost before designing anything.",
     color: "#0891B2",
+    align: "right",
   },
   {
     n: "03",
     title: "Design & Implement",
     desc: "A tailored solution built around your existing tools — never a template. We stay until it's fully embedded.",
     color: "#06B6D4",
+    align: "left",
   },
   {
     n: "04",
     title: "Ongoing Maintenance & Updates",
     desc: "Processes evolve. We stay on hand for bug fixes, improvements, and new automations as your team grows.",
     color: "#0E7490",
+    align: "right",
   },
 ];
 
-const N = steps.length;
-
-function Step({
-  step,
-  index,
-  scrollYProgress,
-}: {
-  step: (typeof steps)[0];
-  index: number;
-  scrollYProgress: MotionValue<number>;
-}) {
-  const start = index / N;
-  const end = (index + 1) / N;
-  const mid = (start + end) / 2;
-  const fadeEnd = end - 0.02;
-
-  const opacity = useTransform(
-    scrollYProgress,
-    [start, start + 0.08, fadeEnd, end],
-    [0, 1, 1, 0]
-  );
-  const y = useTransform(scrollYProgress, [start, start + 0.1], [50, 0]);
-  const numOpacity = useTransform(
-    scrollYProgress,
-    [start, start + 0.06, fadeEnd, end],
-    [0, 0.13, 0.13, 0]
-  );
-  const numScale = useTransform(scrollYProgress, [start, start + 0.1], [0.75, 1]);
+function StepRow({ step, index }: { step: typeof steps[0]; index: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const isRight = step.align === "right";
 
   return (
-    <motion.div
-      style={{ opacity }}
-      className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center pointer-events-none"
-    >
+    <div ref={ref} className="relative min-h-[55vh] flex items-center overflow-hidden">
       {/* Giant background number */}
       <motion.p
-        style={{ opacity: numOpacity, scale: numScale }}
-        className="font-display font-bold leading-none select-none absolute"
+        initial={{ opacity: 0, x: isRight ? 80 : -80 }}
+        animate={inView ? { opacity: 0.06, x: isRight ? 40 : -40 } : {}}
+        transition={{ duration: 0.9, ease: "easeOut" }}
         aria-hidden
-        // inline style for fontSize since it's huge
+        className="pointer-events-none select-none absolute font-display font-bold leading-none"
+        style={{
+          fontSize: "clamp(10rem, 30vw, 26rem)",
+          color: step.color,
+          right: isRight ? "-2vw" : "auto",
+          left: isRight ? "auto" : "-2vw",
+          top: "50%",
+          transform: "translateY(-50%)",
+          lineHeight: 0.85,
+        }}
       >
-        <span
-          style={{
-            fontSize: "clamp(8rem, 28vw, 22rem)",
-            lineHeight: 1,
-            color: step.color,
-            display: "block",
-          }}
-        >
-          {step.n}
-        </span>
+        {step.n}
       </motion.p>
 
-      {/* Text content */}
-      <motion.div style={{ y }} className="relative z-10 mt-8">
-        <p
-          className="text-xs font-semibold uppercase tracking-widest mb-4"
-          style={{ color: step.color }}
-        >
-          Step {step.n}
-        </p>
-        <h3 className="text-4xl sm:text-5xl font-display font-bold text-slate-900 mb-5 max-w-2xl leading-tight">
-          {step.title}
-        </h3>
-        <p className="text-slate-500 text-lg max-w-lg mx-auto leading-relaxed">
-          {step.desc}
-        </p>
-      </motion.div>
-    </motion.div>
-  );
-}
+      {/* Vertical connector line */}
+      {index < steps.length - 1 && (
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={inView ? { scaleY: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="absolute left-1/2 -translate-x-1/2 bottom-0 origin-top"
+          style={{ width: 1, height: "40%", background: "rgba(14,116,144,0.15)" }}
+        />
+      )}
 
-function Dot({
-  index,
-  scrollYProgress,
-}: {
-  index: number;
-  scrollYProgress: MotionValue<number>;
-}) {
-  const start = index / N;
-  const end = (index + 1) / N;
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-6 w-full py-16">
+        <div className={`max-w-xl ${isRight ? "ml-auto text-right" : "text-left"}`}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <span
+              className="inline-block text-xs font-semibold uppercase tracking-widest mb-3"
+              style={{ color: step.color }}
+            >
+              Step {step.n}
+            </span>
+            <h3 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-slate-900 leading-tight mb-5">
+              {step.title}
+            </h3>
+            <p className="text-slate-500 text-lg leading-relaxed max-w-md">
+              {step.desc}
+            </p>
 
-  const bg = useTransform(scrollYProgress, [start, start + 0.05, end - 0.05, end], [
-    "#CBD5E1", "#0E7490", "#0E7490", "#CBD5E1",
-  ]);
-  const width = useTransform(scrollYProgress, [start, start + 0.05, end - 0.05, end], [
-    6, 24, 24, 6,
-  ]);
-
-  return (
-    <motion.div
-      style={{ width, height: 6, backgroundColor: bg, borderRadius: 999 }}
-    />
+            {/* Active dot accent */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={inView ? { scaleX: 1 } : {}}
+              transition={{ duration: 0.5, delay: 0.35 }}
+              className={`mt-8 h-0.5 w-16 rounded-full origin-left ${isRight ? "ml-auto origin-right" : ""}`}
+              style={{ background: step.color }}
+            />
+          </motion.div>
+        </div>
+      </div>
+    </div>
   );
 }
 
 export default function HomeProcess() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section
-      ref={containerRef}
-      style={{ height: `${N * 100}vh` }}
-      className="relative bg-white"
-    >
-      <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Label */}
-        <div className="absolute top-8 left-0 right-0 flex justify-center z-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 select-none">
-            Our Approach
-          </p>
-        </div>
-
-        {/* Steps */}
-        {steps.map((step, i) => (
-          <Step key={step.n} step={step} index={i} scrollYProgress={scrollYProgress} />
-        ))}
-
-        {/* Dot indicators */}
-        <div className="absolute bottom-10 left-0 right-0 flex justify-center items-center gap-2 z-10">
-          {steps.map((_, i) => (
-            <Dot key={i} index={i} scrollYProgress={scrollYProgress} />
-          ))}
-        </div>
-
-        {/* Full process link */}
-        <div className="absolute bottom-9 right-8 z-10">
+    <section className="bg-white py-16 overflow-hidden">
+      {/* Header */}
+      <div className="max-w-7xl mx-auto px-6 mb-4" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-4"
+        >
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">
+              Our Approach
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 leading-tight max-w-xl">
+              We start with the problem.{" "}
+              <span className="gradient-text-static font-serif-accent">Not the software.</span>
+            </h2>
+          </div>
           <Link
             href="/services"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:text-violet-500 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:text-violet-500 transition-colors shrink-0"
           >
             Full process <ArrowRight size={14} />
           </Link>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Steps */}
+      {steps.map((step, i) => (
+        <StepRow key={step.n} step={step} index={i} />
+      ))}
     </section>
   );
 }
