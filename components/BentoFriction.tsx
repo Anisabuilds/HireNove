@@ -45,11 +45,11 @@ export default function BentoFriction() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="inline-flex items-center gap-2.5 rounded-lg px-4 py-2.5 mb-12"
-          style={{ background: "rgba(6,182,212,0.06)", border: "1px solid rgba(6,182,212,0.15)" }}
+          style={{ background: "#0E7490" }}
         >
-          <span className="w-1 h-1 rounded-full bg-violet-500 shrink-0" />
-          <p className="text-sm text-violet-700">
-            <strong className="font-semibold text-violet-800">Examples only.</strong>{" "}
+          <span className="w-1 h-1 rounded-full bg-white/60 shrink-0" />
+          <p className="text-sm text-white">
+            <strong className="font-semibold text-white">Examples only.</strong>{" "}
             Every solution we build is tailored to your specific process.
           </p>
         </motion.div>
