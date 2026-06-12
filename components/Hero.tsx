@@ -51,10 +51,10 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
           className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full"
-          style={{ background: "#0E7490" }}
+          style={{ background: "rgba(14,116,144,0.12)", border: "1px solid rgba(14,116,144,0.35)" }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-white/60" />
-          <span className="text-xs font-semibold text-white tracking-widest uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-violet-600" />
+          <span className="text-xs font-semibold text-violet-600 tracking-widest uppercase">
             Workflow Optimisation · Recruitment Firms
           </span>
         </motion.div>
