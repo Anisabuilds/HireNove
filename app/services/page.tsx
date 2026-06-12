@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SiteLayout from "@/components/SiteLayout";
-import HowWeWork from "@/components/HowWeWork";
+import HomeProcess from "@/components/HomeProcess";
 import BentoFriction from "@/components/BentoFriction";
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <HowWeWork />
+      <HomeProcess hideHeader />
       <BentoFriction />
     </SiteLayout>
   );

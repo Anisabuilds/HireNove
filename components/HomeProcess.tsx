@@ -109,37 +109,39 @@ function StepRow({ step, index }: { step: typeof steps[0]; index: number }) {
   );
 }
 
-export default function HomeProcess() {
+export default function HomeProcess({ hideHeader = false }: { hideHeader?: boolean }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
     <section className="bg-white py-16 overflow-hidden">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 mb-4" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-4"
-        >
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">
-              Our Approach
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 leading-tight max-w-xl">
-              We start with the problem.{" "}
-              <span className="gradient-text-static font-serif-accent">Not the software.</span>
-            </h2>
-          </div>
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:text-violet-500 transition-colors shrink-0"
+      {!hideHeader && (
+        <div className="max-w-7xl mx-auto px-6 mb-4" ref={ref}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col sm:flex-row sm:items-end justify-between gap-4"
           >
-            Full process <ArrowRight size={14} />
-          </Link>
-        </motion.div>
-      </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">
+                Our Approach
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 leading-tight max-w-xl">
+                We start with the problem.{" "}
+                <span className="gradient-text-static font-serif-accent">Not the software.</span>
+              </h2>
+            </div>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:text-violet-500 transition-colors shrink-0"
+            >
+              Full process <ArrowRight size={14} />
+            </Link>
+          </motion.div>
+        </div>
+      )}
 
       {/* Steps */}
       {steps.map((step, i) => (
