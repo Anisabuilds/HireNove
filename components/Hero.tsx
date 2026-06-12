@@ -120,7 +120,7 @@ export default function Hero() {
       </div>
 
       {/* Decorative H logo */}
-      <div className="pointer-events-none absolute right-16 top-[55%] -translate-y-1/2 w-[420px] h-[420px] opacity-[0.06] select-none hidden lg:block">
+      <div className="pointer-events-none absolute right-16 top-[70%] -translate-y-1/2 w-[420px] h-[420px] opacity-[0.06] select-none hidden lg:block">
         <Image src="/logo-symbol.png" alt="" fill className="object-contain object-right" />
       </div>
 
