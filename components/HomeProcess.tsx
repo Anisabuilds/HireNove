@@ -15,7 +15,7 @@ const steps = [
   {
     n: "02",
     title: "Identify Bottlenecks",
-    desc: "Every friction point ranked by impact. We find exactly where time is lost before designing anything.",
+    desc: "We analyse your workflows to identify the bottlenecks, repetitive tasks, and process inefficiencies that have the greatest impact on your team. By understanding where time is lost and where operational friction occurs, we can prioritise the areas that matter most — before designing anything.",
     color: "#0891B2",
     align: "right",
   },
@@ -75,7 +75,7 @@ function StepRow({ step, index }: { step: typeof steps[0]; index: number }) {
 
       {/* Content */}
       <div className="max-w-7xl mx-auto px-6 w-full py-16">
-        <div className={`max-w-xl ${isRight ? "ml-auto text-right" : "text-left"}`}>
+        <div className={`max-w-2xl ${isRight ? "ml-auto text-right" : "text-left"}`}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -90,7 +90,7 @@ function StepRow({ step, index }: { step: typeof steps[0]; index: number }) {
             <h3 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-slate-900 leading-tight mb-5">
               {step.title}
             </h3>
-            <p className="text-slate-500 text-lg leading-relaxed max-w-md">
+            <p className="text-slate-500 text-lg leading-relaxed">
               {step.desc}
             </p>
 
