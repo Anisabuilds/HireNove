@@ -97,13 +97,13 @@ export default function IntegrationsSection() {
 
           <div
             className="relative rounded-2xl overflow-hidden flex items-center justify-center"
-            style={{ background: "#0D1117", height: 160 }}
+            style={{ background: "#F3EDE5", height: 160 }}
           >
             {/* edge fades */}
             <div className="absolute inset-y-0 left-0 w-32 z-10 pointer-events-none"
-              style={{ background: "linear-gradient(to right, #0D1117, transparent)" }} />
+              style={{ background: "linear-gradient(to right, #F3EDE5, transparent)" }} />
             <div className="absolute inset-y-0 right-0 w-32 z-10 pointer-events-none"
-              style={{ background: "linear-gradient(to left, #0D1117, transparent)" }} />
+              style={{ background: "linear-gradient(to left, #F3EDE5, transparent)" }} />
 
             <div className="relative flex items-center justify-center w-full" style={{ height: 160 }}>
               {positions.map((offset) => {
@@ -127,7 +127,7 @@ export default function IntegrationsSection() {
                       style={{
                         width: isCenter ? 56 : absOffset === 1 ? 36 : 24,
                         height: isCenter ? 56 : absOffset === 1 ? 36 : 24,
-                        background: "rgba(255,255,255,0.08)",
+                        background: "rgba(0,0,0,0.06)",
                       }}
                     >
                       <Image
@@ -139,7 +139,7 @@ export default function IntegrationsSection() {
                       />
                     </div>
                     {isCenter && (
-                      <span className="text-white text-sm font-medium tracking-wide">
+                      <span className="text-slate-700 text-sm font-medium tracking-wide">
                         {tool.name}
                       </span>
                     )}
