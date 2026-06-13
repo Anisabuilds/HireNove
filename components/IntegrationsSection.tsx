@@ -40,14 +40,11 @@ function DisclaimerIcon() {
 type Tool = { name: string; icon?: string };
 
 const automationTools: Tool[] = [
-  { name: "OpenAI",   icon: "https://cdn.simpleicons.org/openai" },
   { name: "Claude",   icon: "https://cdn.simpleicons.org/anthropic" },
   { name: "n8n",      icon: "https://cdn.simpleicons.org/n8n" },
   { name: "Zapier",   icon: "https://cdn.simpleicons.org/zapier" },
   { name: "Make",     icon: "https://cdn.simpleicons.org/make" },
   { name: "Airtable", icon: "https://cdn.simpleicons.org/airtable" },
-  { name: "Notion",   icon: "https://cdn.simpleicons.org/notion" },
-  { name: "Slack",    icon: "https://cdn.simpleicons.org/slack" },
 ];
 
 const recruitmentTools: Tool[] = [
