@@ -1,7 +1,41 @@
 "use client";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import Image from "next/image";
+import { Info } from "lucide-react";
+
+const DISCLAIMER = `Disclaimer: HireNove is an independent workflow optimization and automation service provider. All product names, logos, brands, and trademarks displayed on this website (including OpenAI, Claude, n8n, Zapier, Make, Airtable, Notion, Slack, LinkedIn, Calendly, Greenhouse, Bullhorn, Ashby, Lever, Loxo, Gem, Juicebox, and Kaspr) are property of their respective owners. Their use on this site is for identification and compatibility purposes only and does not imply any official affiliation, endorsement, or sponsorship by the trademark holders.`;
+
+function DisclaimerIcon() {
+  const [open, setOpen] = useState(false);
+  return (
+    <span className="relative inline-flex items-center ml-2">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="text-slate-400 hover:text-slate-600 transition-colors"
+        aria-label="Trademark disclaimer"
+      >
+        <Info size={13} />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <>
+            <div className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 6 }}
+              transition={{ duration: 0.15 }}
+              className="absolute left-0 top-6 z-50 w-80 bg-white border border-black/10 rounded-xl shadow-lg p-4 text-xs text-slate-500 leading-relaxed"
+            >
+              {DISCLAIMER}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </span>
+  );
+}
 
 type Tool = { name: string; icon?: string };
 
@@ -91,7 +125,9 @@ export default function IntegrationsSection() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-[#0E7490] mb-3">Integrations</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0E7490] mb-3 flex items-center">
+            Integrations<DisclaimerIcon />
+          </p>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 mb-4 max-w-2xl leading-tight">
             Built on tools you already know.{" "}
             <span className="gradient-text-static font-serif-accent">Connected around you.</span>
