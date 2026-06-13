@@ -49,23 +49,27 @@ export default function Navbar({
         </Link>
 
         {/* Desktop links */}
-        <nav className="hidden md:flex items-center gap-4 flex-1 justify-center">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={cn(
-                "text-base font-medium transition-colors duration-200 whitespace-nowrap",
-                pathname === l.href ? "text-slate-900" : "text-slate-500 hover:text-slate-900"
-              )}
-            >
-              {l.label}
-            </Link>
+        <nav className="hidden md:flex items-center flex-1 justify-center">
+          {links.map((l, i) => (
+            <div key={l.href} className="flex items-center">
+              {i !== 0 && <span className="w-px h-3.5 bg-slate-300 mx-3" />}
+              <Link
+                href={l.href}
+                className={cn(
+                  "text-base font-medium transition-colors duration-200 whitespace-nowrap",
+                  pathname === l.href ? "text-slate-900" : "text-slate-500 hover:text-slate-400"
+                )}
+              >
+                {l.label}
+              </Link>
+            </div>
           ))}
-          <button onClick={onLearnOpen} className="text-base text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium whitespace-nowrap">
+          <span className="w-px h-3.5 bg-slate-300 mx-3" />
+          <button onClick={onLearnOpen} className="text-base text-slate-500 hover:text-slate-400 transition-colors duration-200 font-medium whitespace-nowrap">
             {tr(t.nav.helpLearn, lang)}
           </button>
-          <button onClick={onDiscoveryOpen} className="text-base text-slate-500 hover:text-slate-900 transition-colors duration-200 font-medium whitespace-nowrap">
+          <span className="w-px h-3.5 bg-slate-300 mx-3" />
+          <button onClick={onDiscoveryOpen} className="text-base text-slate-500 hover:text-slate-400 transition-colors duration-200 font-medium whitespace-nowrap">
             {tr(t.nav.contact, lang)}
           </button>
         </nav>
