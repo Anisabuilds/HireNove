@@ -6,6 +6,7 @@ import HelpUsLearnModal from "./HelpUsLearnModal";
 import DiscoveryModal from "./DiscoveryModal";
 import PilotModal from "./PilotModal";
 import MouseTracker from "./MouseTracker";
+import CookieBanner from "./CookieBanner";
 import { LanguageProvider } from "@/lib/LanguageContext";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -35,6 +36,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <DiscoveryModal open={discoveryOpen} onClose={() => setDiscoveryOpen(false)} />
       <PilotModal />
       <MouseTracker />
+      <CookieBanner />
     </LanguageProvider>
   );
 }
