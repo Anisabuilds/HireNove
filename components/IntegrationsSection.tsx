@@ -53,12 +53,12 @@ function MarqueeRow({ tools, reverse = false }: { tools: Tool[]; reverse?: boole
   return (
     <div className="overflow-hidden w-full">
       <div
+        className="marquee-track"
         style={{
           display: "flex",
           flexWrap: "nowrap",
           alignItems: "center",
           width: "max-content",
-          animation: `marquee${reverse ? "Reverse" : ""} 30s linear infinite`,
         }}
       >
         {repeated.map((tool, i) => (
@@ -95,9 +95,10 @@ export default function IntegrationsSection() {
           0% { transform: translateX(0); }
           100% { transform: translateX(-33.333%); }
         }
-        @keyframes marqueeReverse {
-          0% { transform: translateX(-33.333%); }
-          100% { transform: translateX(0); }
+        .marquee-track {
+          animation: marquee 20s linear infinite;
+          animation-play-state: running !important;
+          will-change: transform;
         }
       `}</style>
 
