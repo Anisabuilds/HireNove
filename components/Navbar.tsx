@@ -24,6 +24,7 @@ export default function Navbar({
     { label: tr(t.nav.home,     lang), href: "/" },
     { label: tr(t.nav.services, lang), href: "/services" },
     { label: tr(t.nav.about,    lang), href: "/about" },
+    { label: "Pilot Programme",        href: "/pilot" },
   ];
 
   useEffect(() => {
