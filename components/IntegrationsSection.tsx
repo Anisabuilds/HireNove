@@ -57,7 +57,7 @@ export default function IntegrationsSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => mod(prev + 1, tools.length));
-    }, 2000);
+    }, 2800);
     return () => clearInterval(interval);
   }, []);
 
@@ -97,13 +97,13 @@ export default function IntegrationsSection() {
 
           <div
             className="relative rounded-2xl overflow-hidden flex items-center justify-center"
-            style={{ background: "#F3EDE5", height: 160 }}
+            style={{ background: "#FAF7F4", height: 160 }}
           >
             {/* edge fades */}
             <div className="absolute inset-y-0 left-0 w-32 z-10 pointer-events-none"
-              style={{ background: "linear-gradient(to right, #F3EDE5, transparent)" }} />
+              style={{ background: "linear-gradient(to right, #FAF7F4, transparent)" }} />
             <div className="absolute inset-y-0 right-0 w-32 z-10 pointer-events-none"
-              style={{ background: "linear-gradient(to left, #F3EDE5, transparent)" }} />
+              style={{ background: "linear-gradient(to left, #FAF7F4, transparent)" }} />
 
             <div className="relative flex items-center justify-center w-full" style={{ height: 160 }}>
               {positions.map((offset) => {
@@ -119,7 +119,7 @@ export default function IntegrationsSection() {
                   <motion.div
                     key={`${index}-${offset}`}
                     animate={{ x: `${xPercent}px`, scale, opacity }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
                     className="absolute flex flex-col items-center gap-3"
                   >
                     <div
