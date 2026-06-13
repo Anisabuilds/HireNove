@@ -7,7 +7,7 @@ export const t = {
     about:     { en: "About",         de: "Über uns" },
     helpLearn: { en: "Help Us Learn", de: "Hilf uns lernen" },
     contact:   { en: "Contact",       de: "Kontakt" },
-    bookCall:  { en: "Book a Call",   de: "Gespräch buchen" },
+    bookCall:  { en: "Join the Pilot", de: "Zum Pilot bewerben" },
   },
   hero: {
     badge:    { en: "Workflow Optimisation · Recruitment Firms", de: "Workflow-Optimierung · Recruitment-Agenturen" },
