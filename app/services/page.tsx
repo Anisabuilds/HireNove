@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import SiteLayout from "@/components/SiteLayout";
 import HomeProcess from "@/components/HomeProcess";
 import BentoFriction from "@/components/BentoFriction";
-import DataSecurity from "@/components/DataSecurity";
 
 export const metadata: Metadata = {
   title: "Services — HireNove",
@@ -29,7 +28,6 @@ export default function ServicesPage() {
 
       <HomeProcess hideHeader />
       <BentoFriction />
-      <DataSecurity />
     </SiteLayout>
   );
 }
