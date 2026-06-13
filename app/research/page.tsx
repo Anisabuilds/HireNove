@@ -107,23 +107,15 @@ export default function ResearchPage() {
               transition={{ delay: 0.2 }}
               className="font-display font-bold text-slate-900 text-3xl mb-3"
             >
-              You're amazing. Thank you.
+              Thank you for your time.
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.35 }}
-              className="text-slate-500 text-base max-w-sm mx-auto mb-3 leading-relaxed"
+              className="text-slate-400 text-sm max-w-sm mx-auto mb-10 leading-relaxed"
             >
-              Sharing your experience takes real trust — and it genuinely helps us build something better for recruitment teams like yours.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="text-slate-400 text-sm mb-10"
-            >
-              Every response is read carefully by Anisa personally.
+              Every response is read carefully.
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
