@@ -44,7 +44,6 @@ const automationTools: Tool[] = [
   { name: "n8n",      icon: "https://cdn.simpleicons.org/n8n" },
   { name: "Zapier",   icon: "https://cdn.simpleicons.org/zapier" },
   { name: "Make",     icon: "https://cdn.simpleicons.org/make" },
-  { name: "Airtable", icon: "https://cdn.simpleicons.org/airtable" },
 ];
 
 const recruitmentTools: Tool[] = [
@@ -60,37 +59,34 @@ const recruitmentTools: Tool[] = [
   { name: "Kaspr" },
 ];
 
-function ToolPill({ tool }: { tool: Tool }) {
-  return (
-    <div className="flex items-center gap-2.5 px-4 py-2.5 bg-white rounded-xl border border-black/8 shadow-sm mx-2 shrink-0">
-      {tool.icon && (
-        <Image
-          src={tool.icon}
-          alt={tool.name}
-          width={16}
-          height={16}
-          className="shrink-0"
-          unoptimized
-        />
-      )}
-      <span className="text-sm font-medium text-slate-600 whitespace-nowrap">{tool.name}</span>
-    </div>
-  );
-}
-
 function MarqueeRow({ tools, reverse = false }: { tools: Tool[]; reverse?: boolean }) {
   const repeated = [...tools, ...tools, ...tools];
   return (
     <div className="overflow-hidden w-full">
       <div
-        className="flex"
+        className="flex items-center"
         style={{
           animation: `marquee${reverse ? "Reverse" : ""} 30s linear infinite`,
           width: "max-content",
         }}
       >
         {repeated.map((tool, i) => (
-          <ToolPill key={`${tool.name}-${i}`} tool={tool} />
+          <span key={`${tool.name}-${i}`} className="flex items-center">
+            <span className="flex items-center gap-2 whitespace-nowrap">
+              {tool.icon && (
+                <Image
+                  src={tool.icon}
+                  alt={tool.name}
+                  width={14}
+                  height={14}
+                  className="shrink-0"
+                  unoptimized
+                />
+              )}
+              <span className="text-sm text-slate-500">{tool.name}</span>
+            </span>
+            <span className="mx-4 text-slate-300">·</span>
+          </span>
         ))}
       </div>
     </div>
