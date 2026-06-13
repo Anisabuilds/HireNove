@@ -65,9 +65,9 @@ export default function Navbar({
             </div>
           ))}
           <span className="w-px h-3.5 bg-slate-300 mx-3" />
-          <button onClick={onLearnOpen} className="text-base text-slate-500 hover:text-slate-400 transition-colors duration-200 font-medium whitespace-nowrap">
+          <Link href="/research" className="text-base text-slate-500 hover:text-slate-400 transition-colors duration-200 font-medium whitespace-nowrap">
             {tr(t.nav.helpLearn, lang)}
-          </button>
+          </Link>
           <span className="w-px h-3.5 bg-slate-300 mx-3" />
           <button onClick={onDiscoveryOpen} className="text-base text-slate-500 hover:text-slate-400 transition-colors duration-200 font-medium whitespace-nowrap">
             {tr(t.nav.contact, lang)}
@@ -102,9 +102,9 @@ export default function Navbar({
               {l.label}
             </Link>
           ))}
-          <button onClick={() => { setMobile(false); onLearnOpen(); }} className="block text-sm font-medium text-slate-600 hover:text-slate-900 w-full text-left">
+          <Link href="/research" onClick={() => setMobile(false)} className="block text-sm font-medium text-slate-600 hover:text-slate-900">
             {tr(t.nav.helpLearn, lang)}
-          </button>
+          </Link>
           <button onClick={() => { setMobile(false); onDiscoveryOpen(); }} className="block text-sm font-medium text-slate-600 hover:text-slate-900 w-full text-left">
             {tr(t.nav.contact, lang)}
           </button>
