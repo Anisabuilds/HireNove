@@ -47,18 +47,6 @@ const automationTools: Tool[] = [
   { name: "Make",         icon: "https://cdn.simpleicons.org/make" },
 ];
 
-const recruitmentTools: Tool[] = [
-  { name: "LinkedIn",   icon: "https://cdn.simpleicons.org/linkedin" },
-  { name: "Calendly",   icon: "https://cdn.simpleicons.org/calendly" },
-  { name: "Greenhouse" },
-  { name: "Bullhorn" },
-  { name: "Ashby" },
-  { name: "Lever" },
-  { name: "Loxo" },
-  { name: "Gem" },
-  { name: "Juicebox" },
-  { name: "Kaspr" },
-];
 
 function MarqueeRow({ tools, reverse = false }: { tools: Tool[]; reverse?: boolean }) {
   const repeated = [...tools, ...tools, ...tools];
@@ -148,12 +136,6 @@ export default function IntegrationsSection() {
           <MarqueeRow tools={automationTools} />
         </div>
 
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4 px-6 max-w-7xl mx-auto">
-            Recruitment platforms
-          </p>
-          <MarqueeRow tools={recruitmentTools} reverse />
-        </div>
       </motion.div>
 
       {/* Note */}
