@@ -84,6 +84,18 @@ export default function Footer({ onDiscoveryOpen }: { onDiscoveryOpen: () => voi
         </div>
       </div>
 
+      {/* Data security note */}
+      <div className="border-t border-black/6 bg-slate-50/60">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-slate-400 text-xs leading-relaxed">
+            🔒 Your data stays yours — every workflow runs inside your own environment. No candidate or client data ever touches our systems.{" "}
+            <Link href="/services#data" className="text-[#0E7490] hover:text-[#0891B2] transition-colors font-medium">
+              Learn more →
+            </Link>
+          </p>
+        </div>
+      </div>
+
       <div className="border-t border-black/6">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-slate-300 text-xs">
