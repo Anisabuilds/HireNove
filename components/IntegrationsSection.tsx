@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -6,19 +6,19 @@ import Image from "next/image";
 type Tool = { name: string; icon?: string };
 
 const automationTools: Tool[] = [
-  { name: "OpenAI",   icon: "https://cdn.simpleicons.org/openai/0E7490" },
-  { name: "Claude",   icon: "https://cdn.simpleicons.org/anthropic/0E7490" },
-  { name: "n8n",      icon: "https://cdn.simpleicons.org/n8n/0E7490" },
-  { name: "Zapier",   icon: "https://cdn.simpleicons.org/zapier/0E7490" },
-  { name: "Make",     icon: "https://cdn.simpleicons.org/make/0E7490" },
-  { name: "Airtable", icon: "https://cdn.simpleicons.org/airtable/0E7490" },
-  { name: "Notion",   icon: "https://cdn.simpleicons.org/notion/0E7490" },
-  { name: "Slack",    icon: "https://cdn.simpleicons.org/slack/0E7490" },
+  { name: "OpenAI",   icon: "https://cdn.simpleicons.org/openai" },
+  { name: "Claude",   icon: "https://cdn.simpleicons.org/anthropic" },
+  { name: "n8n",      icon: "https://cdn.simpleicons.org/n8n" },
+  { name: "Zapier",   icon: "https://cdn.simpleicons.org/zapier" },
+  { name: "Make",     icon: "https://cdn.simpleicons.org/make" },
+  { name: "Airtable", icon: "https://cdn.simpleicons.org/airtable" },
+  { name: "Notion",   icon: "https://cdn.simpleicons.org/notion" },
+  { name: "Slack",    icon: "https://cdn.simpleicons.org/slack" },
 ];
 
 const recruitmentTools: Tool[] = [
-  { name: "LinkedIn",   icon: "https://cdn.simpleicons.org/linkedin/0E7490" },
-  { name: "Calendly",  icon: "https://cdn.simpleicons.org/calendly/0E7490" },
+  { name: "LinkedIn",   icon: "https://cdn.simpleicons.org/linkedin" },
+  { name: "Calendly",   icon: "https://cdn.simpleicons.org/calendly" },
   { name: "Greenhouse" },
   { name: "Bullhorn" },
   { name: "Ashby" },
@@ -29,27 +29,40 @@ const recruitmentTools: Tool[] = [
   { name: "Kaspr" },
 ];
 
-function ToolPill({ tool, delay }: { tool: Tool; delay: number }) {
+function ToolPill({ tool }: { tool: Tool }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.3, delay }}
-      className="flex items-center gap-2 px-3.5 py-2 bg-white rounded-lg border border-black/8 shadow-sm hover:border-violet-200 hover:shadow-md transition-all duration-200 cursor-default"
-    >
+    <div className="flex items-center gap-2.5 px-4 py-2.5 bg-white rounded-xl border border-black/8 shadow-sm mx-2 shrink-0">
       {tool.icon && (
         <Image
           src={tool.icon}
           alt={tool.name}
-          width={14}
-          height={14}
-          className="shrink-0 opacity-80"
+          width={16}
+          height={16}
+          className="shrink-0"
           unoptimized
         />
       )}
-      <span className="text-xs font-medium text-slate-600 whitespace-nowrap">{tool.name}</span>
-    </motion.div>
+      <span className="text-sm font-medium text-slate-600 whitespace-nowrap">{tool.name}</span>
+    </div>
+  );
+}
+
+function MarqueeRow({ tools, reverse = false }: { tools: Tool[]; reverse?: boolean }) {
+  const repeated = [...tools, ...tools, ...tools];
+  return (
+    <div className="overflow-hidden w-full">
+      <div
+        className="flex"
+        style={{
+          animation: `marquee${reverse ? "Reverse" : ""} 30s linear infinite`,
+          width: "max-content",
+        }}
+      >
+        {repeated.map((tool, i) => (
+          <ToolPill key={`${tool.name}-${i}`} tool={tool} />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -58,7 +71,18 @@ export default function IntegrationsSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="py-24 bg-white" ref={ref}>
+    <section className="py-24 bg-white overflow-hidden" ref={ref}>
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+        @keyframes marqueeReverse {
+          0% { transform: translateX(-33.333%); }
+          100% { transform: translateX(0); }
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -67,7 +91,7 @@ export default function IntegrationsSection() {
           transition={{ duration: 0.6 }}
           className="mb-14"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-violet-600 mb-3">Integrations</p>
+          <p className="text-xs font-semibold uppercase tracking-widest text-[#0E7490] mb-3">Integrations</p>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 mb-4 max-w-2xl leading-tight">
             Built on tools you already know.{" "}
             <span className="gradient-text-static font-serif-accent">Connected around you.</span>
@@ -76,45 +100,32 @@ export default function IntegrationsSection() {
             We work inside your existing stack — connecting the platforms your team already uses, not replacing them.
           </p>
         </motion.div>
+      </div>
 
-        <div className="space-y-10">
-          {/* Automation stack */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">
-              Automation & AI stack
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {automationTools.map((tool, i) => (
-                <ToolPill key={tool.name} tool={tool} delay={0.15 + i * 0.04} />
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Divider */}
-          <div className="border-t border-black/6" />
-
-          {/* Recruitment platforms */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.25 }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">
-              Recruitment platforms
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {recruitmentTools.map((tool, i) => (
-                <ToolPill key={tool.name} tool={tool} delay={0.3 + i * 0.04} />
-              ))}
-            </div>
-          </motion.div>
+      {/* Marquee bands */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="space-y-4"
+      >
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4 px-6 max-w-7xl mx-auto">
+            Automation & AI stack
+          </p>
+          <MarqueeRow tools={automationTools} />
         </div>
 
-        {/* Note */}
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4 px-6 max-w-7xl mx-auto">
+            Recruitment platforms
+          </p>
+          <MarqueeRow tools={recruitmentTools} reverse />
+        </div>
+      </motion.div>
+
+      {/* Note */}
+      <div className="max-w-7xl mx-auto px-6">
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -124,7 +135,7 @@ export default function IntegrationsSection() {
           Don't see your platform?{" "}
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("openDiscovery"))}
-            className="text-violet-600 hover:text-violet-500 transition-colors font-medium"
+            className="text-[#0E7490] hover:text-[#0891B2] transition-colors font-medium"
           >
             Tell us what you're working with →
           </button>
