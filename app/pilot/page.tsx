@@ -118,7 +118,7 @@ export default function PilotPage() {
             <span className="gradient-text font-serif-accent">Pay nothing unless it works.</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-10">
-            HireNove is offering a small number of recruitment firms a free one-month pilot. You get a fully built, integrated workflow solution. We get real experience building it. Zero financial risk on your side.
+            HireNove is offering a small number of recruitment firms a free one-month pilot. You get a fully built, integrated workflow solution. We gain hands-on experience building it. Zero financial risk on your side.
           </p>
           <button
             onClick={() => document.dispatchEvent(new CustomEvent("openPilot"))}
@@ -165,10 +165,10 @@ export default function PilotPage() {
               </div>
               <div className="space-y-4">
                 <p>
-                  By working with a small number of firms at no cost, I get the hands-on experience of building solutions that run in real environments — not test scenarios. You get a functioning workflow improvement without any financial exposure.
+                  By working with a small number of firms through our Pilot Programme, we gain hands-on experience building solutions that run in real environments — not test scenarios. You get a functioning workflow improvement without any financial exposure.
                 </p>
                 <p>
-                  If it works, we continue together. If it doesn't, you walk away with nothing owed. That's the deal. Simple, transparent, and fair to both sides.
+                  If the improvements deliver value, we can discuss a longer-term engagement. If they don't, you walk away with nothing owed. That's the deal. Simple, transparent, and fair to both sides.
                 </p>
               </div>
             </div>
