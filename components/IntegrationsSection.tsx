@@ -26,7 +26,7 @@ function DisclaimerIcon() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.15 }}
-              className="absolute left-0 top-6 z-50 w-80 bg-white border border-black/10 rounded-xl shadow-lg p-4 text-xs text-slate-500 leading-relaxed"
+              className="absolute left-0 top-6 z-50 w-80 bg-white border border-black/10 rounded-xl shadow-lg p-4 text-[11px] font-light text-slate-400 leading-relaxed tracking-wide"
             >
               {DISCLAIMER}
             </motion.div>
