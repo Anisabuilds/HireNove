@@ -40,10 +40,11 @@ function DisclaimerIcon() {
 type Tool = { name: string; icon?: string };
 
 const automationTools: Tool[] = [
-  { name: "Claude",   icon: "https://cdn.simpleicons.org/anthropic" },
-  { name: "n8n",      icon: "https://cdn.simpleicons.org/n8n" },
-  { name: "Zapier",   icon: "https://cdn.simpleicons.org/zapier" },
-  { name: "Make",     icon: "https://cdn.simpleicons.org/make" },
+  { name: "Claude",       icon: "https://cdn.simpleicons.org/anthropic" },
+  { name: "Claude Code",  icon: "https://cdn.simpleicons.org/anthropic" },
+  { name: "n8n",          icon: "https://cdn.simpleicons.org/n8n" },
+  { name: "Zapier",       icon: "https://cdn.simpleicons.org/zapier" },
+  { name: "Make",         icon: "https://cdn.simpleicons.org/make" },
 ];
 
 const recruitmentTools: Tool[] = [
@@ -64,10 +65,12 @@ function MarqueeRow({ tools, reverse = false }: { tools: Tool[]; reverse?: boole
   return (
     <div className="overflow-hidden w-full">
       <div
-        className="flex items-center"
         style={{
-          animation: `marquee${reverse ? "Reverse" : ""} 30s linear infinite`,
+          display: "flex",
+          flexWrap: "nowrap",
+          alignItems: "center",
           width: "max-content",
+          animation: `marquee${reverse ? "Reverse" : ""} 30s linear infinite`,
         }}
       >
         {repeated.map((tool, i) => (
