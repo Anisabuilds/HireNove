@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import SiteLayout from "@/components/SiteLayout";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — HireNove",
+  title: "Privacy Policy â€” HireNove",
   description: "How HireNove collects, uses, and protects your information.",
 };
 
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-5 mt-3 space-y-1.5">
                 <li><strong className="text-slate-700">Discovery Call form:</strong> name, company, email address, and any details you include in your message.</li>
                 <li><strong className="text-slate-700">Help Us Learn form:</strong> email address, company name, and your responses to our research questions.</li>
-                <li><strong className="text-slate-700">Pilot Programme form:</strong> name, company, email address, role, and a description of your operational challenges.</li>
+                <li><strong className="text-slate-700">Pilot Program form:</strong> name, company, email address, role, and a description of your operational challenges.</li>
               </ul>
               <p className="mt-3">We do not use cookies for tracking, do not run advertising pixels, and do not collect any data passively beyond what your browser sends to any web server (such as your IP address and browser type).</p>
             </div>
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
               <ul className="list-disc pl-5 mt-3 space-y-1.5">
                 <li>Respond to your enquiry or book a discovery call</li>
                 <li>Conduct internal research to understand recruitment firm challenges (Help Us Learn responses)</li>
-                <li>Review and respond to Pilot Programme applications</li>
+                <li>Review and respond to Pilot Program applications</li>
               </ul>
               <p className="mt-3">We do not sell, rent, or share your information with third parties for marketing purposes.</p>
             </div>

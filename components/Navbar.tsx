@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export default function Navbar({
     { label: tr(t.nav.home,     lang), href: "/" },
     { label: tr(t.nav.services, lang), href: "/services" },
     { label: tr(t.nav.about,    lang), href: "/about" },
-    { label: "Pilot Programme",        href: "/pilot" },
+    { label: "Pilot Program",        href: "/pilot" },
   ];
 
   useEffect(() => {

@@ -15,11 +15,11 @@ export async function POST(req: NextRequest) {
       from: "noreply@hirenove.com",
       to: "anisa@hirenove.com",
       replyTo: email,
-      subject: `Pilot Programme Application — ${company}`,
+      subject: `Pilot Program Application — ${company}`,
       html: `
         <div style="font-family:Inter,sans-serif;max-width:560px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e7eb;">
           <div style="background:#071C2E;padding:32px 40px;">
-            <p style="color:#a78bfa;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 8px;">Pilot Programme Application</p>
+            <p style="color:#a78bfa;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 8px;">Pilot Program Application</p>
             <h1 style="color:#ffffff;font-size:22px;font-weight:700;margin:0;">${company}</h1>
           </div>
           <div style="padding:32px 40px;">

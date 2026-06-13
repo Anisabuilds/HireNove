@@ -49,7 +49,7 @@ export default function About() {
                 style={{ border: "1px solid rgba(0,0,0,0.08)" }}
               >
                 <p className="font-display font-semibold text-slate-900 text-sm">Anisa Leci</p>
-                <p className="text-violet-600 text-xs font-medium">Founder, HireNove</p>
+                <p className="text-violet-600 text-xs font-medium">Founder & Operator, HireNove</p>
               </motion.div>
             </div>
           </motion.div>

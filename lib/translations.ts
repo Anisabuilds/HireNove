@@ -102,13 +102,13 @@ export const t = {
   pilot: {
     badge:    { en: "Limited spots · 1-month free", de: "Begrenzte Plätze · 1 Monat kostenlos" },
     headline1:{ en: "Join the",                     de: "Nehmen Sie am" },
-    headline2:{ en: "Pilot Programme",              de: "Pilotprogramm teil" },
+    headline2:{ en: "Pilot Program",               de: "Pilotprogramm teil" },
     desc:     { en: "I'm offering a free one-month engagement to a handful of recruitment firms. We map your bottlenecks, validate the biggest friction points, and start building together — no cost, no commitment.", de: "Ich biete einigen ausgewählten Recruitment-Agenturen ein kostenloses einmonatiges Engagement an. Wir kartieren Ihre Engpässe, validieren die größten Reibungspunkte und beginnen gemeinsam zu entwickeln — ohne Kosten, ohne Verpflichtung." },
     cta:      { en: "Apply for a Free Pilot",       de: "Für kostenlosen Pilot bewerben" },
     footnote: { en: "Recruitment firms only · Anisa reviews every application personally", de: "Nur für Recruitment-Agenturen · Anisa prüft jede Bewerbung persönlich" },
     modal: {
       badge:    { en: "1-month free · limited spots", de: "1 Monat kostenlos · begrenzte Plätze" },
-      headline: { en: "Apply for the Pilot Programme", de: "Für das Pilotprogramm bewerben" },
+      headline: { en: "Apply for the Pilot Program", de: "Für das Pilotprogramm bewerben" },
       sub:      { en: "Anisa reviews every application personally.", de: "Anisa prüft jede Bewerbung persönlich." },
       name:     { en: "Your name *",       de: "Ihr Name *" },
       company:  { en: "Company *",         de: "Unternehmen *" },

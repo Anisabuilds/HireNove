@@ -44,7 +44,7 @@ export default function PilotModal() {
             <X size={20} />
           </button>
           <span className="text-xs font-semibold tracking-widest uppercase text-violet-400">1-month free · limited spots</span>
-          <h2 className="mt-1 text-2xl font-display font-bold text-white">Apply for the Pilot Programme</h2>
+          <h2 className="mt-1 text-2xl font-display font-bold text-white">Apply for the Pilot Program</h2>
           <p className="mt-1 text-sm text-white/50">Anisa reviews every application personally.</p>
         </div>
 
